@@ -1,0 +1,14 @@
+{% extends 'cryptoApp/base.html' %}
+
+{% block body_block %}
+  <div class="form-container">
+    <h2 class="text-center">Sign up</h2>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-group">
+        <button type="submit">Sign up </button>
+    </div>
+</form>
+  </div>
+{% endblock %}
