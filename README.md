@@ -1,1 +1,1 @@
-# Internet-Appication-and-Distributed-System-Project
+# Internet-Application-and-Distributed-System-Project
