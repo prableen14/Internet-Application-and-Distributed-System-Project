@@ -1,0 +1,9 @@
+*/__pycache__
+*/__pycache__/*
+
+.idea/
+.idea/CryptoTrade.iml
+.idea/misc.xml
+cryptoApp/migrations/.DS_Store
+cryptoApp/.DS_Store
+*.pyc
