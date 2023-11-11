@@ -7,3 +7,6 @@
 cryptoApp/migrations/.DS_Store
 cryptoApp/.DS_Store
 *.pyc
+*.iml
+.idea/CryptoTrade.iml
+.idea/misc.xml
