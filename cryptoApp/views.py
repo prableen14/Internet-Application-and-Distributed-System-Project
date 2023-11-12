@@ -1,7 +1,10 @@
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm
 from django.contrib.auth.decorators import login_required
+from .models import Coin
+
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST, request.FILES)
@@ -12,6 +15,7 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'cryptoApp/signup.html', {'form': form})
+
 
 def custom_login(request):
     if request.method == 'POST':
@@ -31,7 +35,18 @@ def custom_login(request):
 
     return render(request, 'cryptoApp/login.html', {'form': form})
 
+
 @login_required
 def profile_view(request):
     user = request.user
     return render(request, 'cryptoApp/profile.html', {'user': user})
+
+
+def index(request):
+    coins = Coin.objects.all()
+    return render(request, 'cryptoApp/index.html', {'coins': coins})
+
+
+def coin_detail(request, coin_id):
+    coin = get_object_or_404(Coin, id=coin_id)
+    return render(request, 'cryptoApp/coinDetail.html', {'coin': coin})

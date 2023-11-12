@@ -1,12 +1,12 @@
 */__pycache__
 */__pycache__/*
 
-.idea/
+.idea/*
 .idea/CryptoTrade.iml
 .idea/misc.xml
 cryptoApp/migrations/.DS_Store
 cryptoApp/.DS_Store
 *.pyc
 *.iml
-.idea/CryptoTrade.iml
-.idea/misc.xml
+*.xml
+
