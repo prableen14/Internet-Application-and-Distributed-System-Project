@@ -1,6 +1,7 @@
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Group, Permission
+from django.conf import settings
 
 
 class CustomUser(AbstractUser):
@@ -11,7 +12,7 @@ class CustomUser(AbstractUser):
 
 
 class Coin(models.Model):
-    name = models.CharField(max_length=250,null=True)
+    name = models.CharField(max_length=250, null=True)
     symbol = models.CharField(max_length=10, null=True)
     price = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     percentage_change_1h = models.DecimalField(max_digits=5, decimal_places=2, default=0)
@@ -24,3 +25,16 @@ class Coin(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
+class SocialsProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                on_delete=models.CASCADE)  # one user will have only onle profile
+    follows = models.ManyToManyField("self",
+                                     related_name="followed_by",
+                                     symmetrical=False,
+                                     blank=True)
+    # one user can follow many profiles - ManyToManyField
+    # related_name - will be using this later for search query
+    # symmetrical -  False -  so that if I follow someone they don't have to necessarily follow me
+    # blank=True - this means that if i want to I don't have to follow anyone
