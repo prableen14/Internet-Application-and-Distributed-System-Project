@@ -7,5 +7,6 @@ urlpatterns = [
     path('login/', views.custom_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('', views.index, name='index'),
-    path('coin/<int:coin_id>', views.coin_detail, name='coin_detail')
+    path('coin/<int:coin_id>', views.coin_detail, name='coin_detail'),
+    path('socials_home/',views.socials_home, name="socials_home"),
 ]
