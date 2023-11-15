@@ -63,15 +63,15 @@ Welcome to the Crypto Trade App, a Django-based web application for cryptocurren
    ```bash
    git clone git@github.com:prableen14/Internet-Application-and-Distributed-System-Project.git
    cd Internet-Application-and-Distributed-System-Project
-2. **Create a virtual environment and install dependencies:**
+2. **Add Python interpreter**
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    pip install -r requirements.txt
+    In PyCharm, open File -> Settings... -> Project: Internet-Application -> Python Interpreter
+
+    Add a new interpreter if there isn't one
 3. **Apply migrations:**
 
     ```bash
+    python manage.py makemigrations
     python manage.py migrate
 4. **Run the development server:**
     ```bask
