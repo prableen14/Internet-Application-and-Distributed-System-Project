@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter
+from .models import Coin, CurrencyConverter, CustomUser
 import requests
 
 
@@ -45,7 +45,8 @@ def profile_view(request):
 
 def index(request):
     coins = Coin.objects.all()
-    return render(request, 'cryptoApp/index.html', {'coins': coins})
+    highlight = get_hightlight_details()
+    return render(request, 'cryptoApp/index.html', {'coins': coins, 'highlight': highlight})
 
 
 def coin_detail(request, coin_id):
@@ -98,6 +99,23 @@ def converter(request):
         form = ConverterForm()
 
     return render(request, 'cryptoApp/converter.html', {'form': form, 'result': display_result})
+
+
+def get_hightlight_details():
+    # Get the 3 most recently added coins
+    recently_added_coins = Coin.objects.order_by('-createdDate')[:3]
+    print(recently_added_coins)
+
+    # Get the 3 trending coins (you can customize the criteria for trending)
+    trending_coins = Coin.objects.order_by('-percentage_change_24h')[:3]
+    recent_users = CustomUser.objects.order_by('-createdDate')[:3]
+
+    result = {
+        'recently_added_coins': recently_added_coins,
+        'trending_coins': trending_coins,
+        'recent_users': recent_users,
+    }
+    return result
 
 
 def socials_home(request):

@@ -1,8 +1,12 @@
 {% extends 'cryptoApp/base.html' %}
 
 {% block body_block %}
+    <div class="homepage-headline">Today's Cryptocurrency Prices by Byenance</div>
     <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#999999" lcw-marquee-1="coins" lcw-marquee-2="movers" lcw-marquee-items="10" ></div>
-  {% if coins %}
+    {% with highlight_data=highlight %}
+        {% include "./highlight.html" %}
+    {% endwith %}
+    {% if coins %}
       <div class="card custom_card">
         <table class="table custom_table">
           <thead>
@@ -45,12 +49,7 @@
             {% endfor %}
 
           </tbody>
-
-
         </table>
-
-
-
       </div>
   {% endif %}
 {% endblock %}

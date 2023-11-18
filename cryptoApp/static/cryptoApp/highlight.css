@@ -1,0 +1,119 @@
+.highlight-body {
+    display: flex;
+    gap: 15px;
+}
+
+.highlight-card {
+    width: 33%;
+    box-shadow: rgba(88, 102, 126, 0.08) 0px 4px 24px, rgba(88, 102, 126, 0.12) 0px 1px 2px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #F8FAFD;
+}
+
+.carousel-indicators {
+    margin-bottom: unset;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: unset;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.carousel-inner {
+    padding: 15px;
+}
+
+.carousel-item-heading {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.carousel-item-group {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.carousel-item-item, .carousel-item-img {
+    width: 10%;
+    text-align: center;
+}
+
+.carousel-item-item {
+    opacity: 0.5;
+}
+
+.carousel-item-img img {
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+}
+
+.carousel-item-name {
+    width: 45%;
+}
+
+.carousel-item-price {
+    width: 35%;
+    text-align: right;
+    font-weight: 600;
+}
+
+.carousel-item-price.green {
+    color: #16c784;
+}
+
+.carousel-item-price.red {
+    color: #ea3943;
+}
+
+.bar-red {
+    background-color: #EA3943;
+}
+
+.bar-orange {
+    background-color: #EA8C00;
+}
+
+.bar-yellow {
+    background-color: #F3D42F;
+}
+
+.bar-light-green {
+    background-color: #93D900;
+}
+
+.bar-green {
+    background-color: #16C784;
+}
+
+.progress {
+    margin: 30px;
+}
+
+.progress-container {
+    position: relative;
+}
+
+.progress-value {
+    text-align: center;
+    font-weight: 600;
+}
+
+.progress-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+}
+
+.progress-bar:not(:last-child) {
+    margin-right: 3px;
+}
