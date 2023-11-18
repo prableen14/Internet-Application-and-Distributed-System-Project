@@ -27,6 +27,25 @@ class Coin(models.Model):
         return f"{self.name}"
 
 
+class Currency(models.Model):
+    code = models.CharField(max_length=3, unique=True)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.code
+
+
+class CurrencyConverter(models.Model):
+    coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    amount = models.FloatField()
+    currency = models.CharField(max_length=3)
+    result = models.FloatField()
+    is_coin_to_currency = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.amount} {self.coin.symbol} to {self.currency}"
+
+
 class SocialsProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)  # one user will have only onle profile

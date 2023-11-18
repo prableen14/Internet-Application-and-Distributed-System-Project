@@ -1,3 +1,7 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 .custom_card {
     display: flex;
     justify-content: center;

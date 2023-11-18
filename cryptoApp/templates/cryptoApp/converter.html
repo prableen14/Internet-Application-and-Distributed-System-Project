@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Converter</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cryptoApp/converter.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cryptoApp/index.css'%}" />
+</head>
+<body>
+    <div class="container">
+        <h2>CryptoExchange Master</h2>
+        <form class="form-container" method="post" action="{% url 'converter' %}" id="converter-form">
+            {% csrf_token %}
+            <div class="form-input-container">
+                {{ form.amount }}
+            </div>
+
+            <div class="form-select-container">
+                {{ form.coin_type }}
+                <input type="hidden" name="{{ form.is_coin_to_currency.name }}"
+                       id="{{ form.is_coin_to_currency.id_for_label }}"
+                       value="{{ form.is_coin_to_currency.value }}"
+                >
+                <div class="toggle-button" id="toggle-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="white" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                    </svg>
+                </div>
+                {{ form.currency }}
+            </div>
+            <div id="result-container">
+                {% if result %}
+                    <p class="result">Result: {{ result }}</p>
+                {% endif %}
+            </div>
+            <div class="submit-btn">
+                <button class="form-submit" form="converter-form" type="submit" value="button">Convert</button>
+            </div>
+
+
+        </form>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#toggle-button').click(function () {
+            // Toggle the value of the hidden input field
+            let checkbox = $('#id_is_coin_to_currency');
+            checkbox.val(checkbox.val() === 'True' ? 'False' : 'True');
+
+            // Submit the form
+            $('#converter-form').submit();
+
+            // Update the appearance of the toggle button
+            updateToggleFields();
+        });
+
+        // Function to update the appearance of the toggle button based on the initial state
+        function updateToggleFields() {
+            let checkbox = $('#id_is_coin_to_currency');
+            let formContainer = $('.form-select-container');
+
+            if (checkbox.val() === 'False') {
+                formContainer.addClass('switch');
+            } else {
+                formContainer.removeClass('switch');
+            }
+        }
+
+        // Initialize the appearance of the toggle button
+        updateToggleFields();
+    });
+</script>
+
+</body>
+</html>
