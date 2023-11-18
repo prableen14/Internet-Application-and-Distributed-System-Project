@@ -10,6 +10,10 @@ body {
     padding: 15px;
 }
 
+.custom_row:hover {
+    background: red;
+}
+
 .coin_icon {
     width: 30px;
     height: auto;
@@ -19,31 +23,47 @@ body {
     cursor: pointer;
 }
 
+.coin_row:hover td {
+    background: #F8FAFD;
+}
+
+.coin_row:hover th {
+    background: #F8FAFD;
+}
+
 .coin_row:hover {
 
 }
 
-.modal_card {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.custom_modal {
+    display: flex;
+    justify-content: center;
 }
 
-.modal_content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.custom_modal div {
+    transform: scale(1.5);
 }
+/*.modal_card {*/
+/*    display: none; !* Hidden by default *!*/
+/*    position: fixed; !* Stay in place *!*/
+/*    z-index: 1; !* Sit on top *!*/
+/*    padding-top: 100px; !* Location of the box *!*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    width: 100%; !* Full width *!*/
+/*    height: 100%; !* Full height *!*/
+/*    overflow: auto; !* Enable scroll if needed *!*/
+/*    background-color: rgb(0,0,0); !* Fallback color *!*/
+/*    background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
+/*}*/
+
+/*.modal_content {*/
+/*  background-color: #fefefe;*/
+/*  margin: auto;*/
+/*  padding: 20px;*/
+/*  border: 1px solid #888;*/
+/*  width: 80%;*/
+/*}*/
 
 .close {
   color: #aaaaaa;
