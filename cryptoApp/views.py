@@ -49,7 +49,9 @@ def index(request):
 
 def coin_detail(request, coin_id):
     coin = get_object_or_404(Coin, id=coin_id)
+    print(coin.icon_url)
     return render(request, 'cryptoApp/coinDetail.html', {'coin': coin})
 
+
 def socials_home(request):
-    return render(request,'cryptoApp/socials_home.html',{})
+    return render(request, 'cryptoApp/socials_home.html', {})
