@@ -1,8 +1,9 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin
+from .models import Coin, CurrencyConverter
+import requests
 
 
 def signup_view(request):
@@ -53,5 +54,51 @@ def coin_detail(request, coin_id):
     return render(request, 'cryptoApp/coinDetail.html', {'coin': coin})
 
 
+def format_money(amount):
+    return "{:,.2f}".format(amount)
+
+
+def calculate_conversion(coin, amount, currency, is_coin_to_currency=True):
+    coin_data = requests.get(f'https://api.coingecko.com/api/v3/coins/{coin.name.lower()}').json()
+    coin.price = coin_data.get('market_data', {}).get('current_price', {}).get(currency.code.lower(), coin.price)
+    coin.save()
+
+    if is_coin_to_currency:
+        result = amount * float(coin.price)
+    else:
+        result = amount / float(coin.price)
+
+    return result
+
+
+def converter(request):
+    result = None
+    display_result = None
+
+    if request.method == 'POST':
+        form = ConverterForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data['currency'])
+            coin = get_object_or_404(Coin, name=data['coin_type'])
+            print(data['is_coin_to_currency'])
+            result = calculate_conversion(coin, data['amount'], data['currency'], data['is_coin_to_currency'])
+            converter_instance = CurrencyConverter.objects.create(
+                coin=coin,
+                amount=data['amount'],
+                currency=data['currency'],
+                result=result,
+                is_coin_to_currency=data['is_coin_to_currency']
+            )
+            if data['is_coin_to_currency']:
+                display_result = f"{result} {data['currency'].code}"
+            else:
+                display_result = f"{result} {coin.name}"
+    else:
+        form = ConverterForm()
+
+    return render(request, 'cryptoApp/converter.html', {'form': form, 'result': display_result})
+
+
 def socials_home(request):
-    return render(request, 'cryptoApp/socials_home.html', {})
+    return render(request, 'cryptoApp/socials_home.html',{})
