@@ -1,4 +1,4 @@
-.container {
+.converter-container {
     width: 60%;
     margin: 50px auto;
 }
@@ -8,19 +8,13 @@ h2 {
     color: #333;
 }
 
-.form-container {
+.converter-form-container {
     margin-top: 20px;
     background-color: #F8FAFD;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 15px;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
 }
 
 .form-input-container {

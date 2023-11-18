@@ -9,6 +9,7 @@ class CustomUser(AbstractUser):
     id_or_photo = models.FileField(upload_to='id_photos/', null=True, blank=True)
     groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='customuser_set', blank=True)
+    createdDate = models.DateTimeField(auto_now_add=True)
 
 
 class Coin(models.Model):
@@ -22,6 +23,7 @@ class Coin(models.Model):
     all_time_high = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     graph_link = models.URLField(blank=True)
     icon_url = models.URLField(blank=True)
+    createdDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.name}"
