@@ -51,5 +51,10 @@ def coin_detail(request, coin_id):
     coin = get_object_or_404(Coin, id=coin_id)
     return render(request, 'cryptoApp/coinDetail.html', {'coin': coin})
 
+
 def socials_home(request):
-    return render(request,'cryptoApp/socials_home.html',{})
+    return render(request, 'cryptoApp/socials_home.html', {})
+
+
+def community(request):
+    return render(request, 'cryptoApp/community.html', {})
