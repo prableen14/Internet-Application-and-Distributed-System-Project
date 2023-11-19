@@ -1,10 +1,11 @@
 {% extends 'cryptoApp/base.html' %}
 {%block body_block%}
-<h1> Community Page ...</h1>
+<h1> Community</h1>
+<a href="{% url 'article_create' %}" class="btn btn-primary">Post Article</a>
 <ul>
   {% for article in articles %}
     <li>
-      <strong>{{ article.title }}</strong> - {{ article.content|truncatewords:30 }}
+      <a href="{% url 'article_detail' article.id %}"><strong>{{ article.title }}</strong></a> - {{ article.content|truncatewords:30 }}
       <br>Posted by: {{ article.author }} on {{ article.created_at }}
     </li>
   {% empty %}

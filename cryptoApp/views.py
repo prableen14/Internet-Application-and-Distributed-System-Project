@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.views.generic.detail import DetailView
 from .forms import ArticleForm, SignUpForm, CustomAuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Article, Coin
@@ -78,3 +79,9 @@ class ArticleListView(View):
         return render(
             request, 'cryptoApp/article_list.html', {'articles': articles}
         )
+
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'cryptoApp/article_detail.html'
+    context_object_name = 'article'
