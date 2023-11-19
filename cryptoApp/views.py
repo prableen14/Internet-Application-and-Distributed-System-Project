@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm
 from django.contrib.auth.decorators import login_required
@@ -42,7 +42,10 @@ def profile_view(request):
     user = request.user
     return render(request, 'cryptoApp/profile.html', {'user': user})
 
-
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 def index(request):
     coins = Coin.objects.all()
     highlight = get_hightlight_details()
