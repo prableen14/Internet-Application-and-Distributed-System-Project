@@ -1,6 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic.base import View
+from django.views import View
 from .forms import ArticleForm, SignUpForm, CustomAuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Article, Coin
@@ -55,10 +55,6 @@ def coin_detail(request, coin_id):
 
 def socials_home(request):
     return render(request, 'cryptoApp/socials_home.html', {})
-
-
-def community(request):
-    return render(request, 'cryptoApp/community.html', {})
 
 
 class ArticleCreateView(View):

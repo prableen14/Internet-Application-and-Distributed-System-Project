@@ -1,15 +1,14 @@
 {% extends 'cryptoApp/base.html' %}
-
-{% block content %}
-  <h2>Articles</h2>
-  <ul>
-    {% for article in articles %}
-      <li>
-        <strong>{{ article.title }}</strong> - {{ article.content|truncatewords:30 }}
-        <br>Posted by: {{ article.author }} on {{ article.created_at }}
-      </li>
-    {% empty %}
-      <li>No articles yet.</li>
-    {% endfor %}
-  </ul>
+{%block body_block%}
+<h1> Community Page ...</h1>
+<ul>
+  {% for article in articles %}
+    <li>
+      <strong>{{ article.title }}</strong> - {{ article.content|truncatewords:30 }}
+      <br>Posted by: {{ article.author }} on {{ article.created_at }}
+    </li>
+  {% empty %}
+    <li>No articles yet.</li>
+  {% endfor %}
+</ul>
 {% endblock %}
