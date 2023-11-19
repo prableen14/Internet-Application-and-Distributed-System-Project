@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import Article, CustomUser
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 class SignUpForm(UserCreationForm):
     class Meta:
@@ -10,3 +10,9 @@ class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'password')
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content']

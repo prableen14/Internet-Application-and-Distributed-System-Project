@@ -1,8 +1,9 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm
+from django.views.generic.base import View
+from .forms import ArticleForm, SignUpForm, CustomAuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin
+from .models import Article, Coin
 
 
 def signup_view(request):
@@ -58,3 +59,26 @@ def socials_home(request):
 
 def community(request):
     return render(request, 'cryptoApp/community.html', {})
+
+
+class ArticleCreateView(View):
+    def get(self, request, *args, **kwargs):
+        form = ArticleForm()
+        return render(request, 'cryptoApp/create_article.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.author = request.user
+            article.save()
+            return redirect('article_list')  # Redirect to the view displaying all articles
+        return render(request, 'cryptoApp/create_article.html', {'form': form})
+
+
+class ArticleListView(View):
+    def get(self, request, *args, **kwargs):
+        articles = Article.objects.all()  # Retrieve all articles from the database
+        return render(
+            request, 'cryptoApp/article_list.html', {'articles': articles}
+        )
