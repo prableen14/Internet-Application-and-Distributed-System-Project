@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser, Coin, Currency
+from .models import CustomUser, Coin, Currency, Article
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 class SignUpForm(UserCreationForm):
     name = forms.CharField(max_length=255, label='Name')
@@ -38,6 +38,12 @@ class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'password')
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content']
 
 
 class ConverterForm(forms.Form):

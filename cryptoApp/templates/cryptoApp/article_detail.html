@@ -1,0 +1,6 @@
+{% extends 'cryptoApp/base.html' %}
+{%block body_block%}
+  <h2>{{ article.title }}</h2>
+  <p>{{ article.content }}</p>
+  <p>Posted by: {{ article.author }} on {{ article.created_at }}</p>
+{% endblock %}

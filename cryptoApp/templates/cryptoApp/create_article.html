@@ -1,0 +1,10 @@
+{% extends 'cryptoApp/base.html' %}
+
+{%block body_block%}
+  <h2>Create Article</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

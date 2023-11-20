@@ -59,3 +59,16 @@ class SocialsProfile(models.Model):
     # related_name - will be using this later for search query
     # symmetrical -  False -  so that if I follow someone they don't have to necessarily follow me
     # blank=True - this means that if i want to I don't have to follow anyone
+
+
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
