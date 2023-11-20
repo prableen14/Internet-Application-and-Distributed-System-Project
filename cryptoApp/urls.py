@@ -1,7 +1,7 @@
 from django.urls import path
 from cryptoApp import views
 from django.contrib.auth import views as auth_views
-from cryptoApp.views.article_views import (
+from cryptoApp.article_views import (
   ArticleCreateView, ArticleListView, ArticleDetailView
 )
 
