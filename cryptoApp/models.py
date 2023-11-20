@@ -9,6 +9,7 @@ class CustomUser(AbstractUser):
     id_or_photo = models.FileField(upload_to='id_photos/', null=True, blank=True)
     groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='customuser_set', blank=True)
+    createdDate = models.DateTimeField(auto_now_add=True)
 
 
 class Coin(models.Model):
@@ -22,9 +23,29 @@ class Coin(models.Model):
     all_time_high = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     graph_link = models.URLField(blank=True)
     icon_url = models.URLField(blank=True)
+    createdDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.name}"
+
+
+class Currency(models.Model):
+    code = models.CharField(max_length=3, unique=True)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.code
+
+
+class CurrencyConverter(models.Model):
+    coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    amount = models.FloatField()
+    currency = models.CharField(max_length=3)
+    result = models.FloatField()
+    is_coin_to_currency = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.amount} {self.coin.symbol} to {self.currency}"
 
 
 class SocialsProfile(models.Model):

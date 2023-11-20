@@ -1,0 +1,98 @@
+.converter-container {
+    width: 60%;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.converter-form-container {
+    margin-top: 20px;
+    background-color: #F8FAFD;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.form-input-container {
+    width: calc(50% - 25px);
+    margin-bottom: 15px;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-select-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.switch {
+    flex-direction: row-reverse;
+}
+
+.form-radio {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.toggle-button {
+    width: 100%;
+    max-width: 40px;
+    margin: auto 5px;
+    height: 25px;
+    background-color: rgb(16, 112, 224);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.2s;
+}
+
+.toggle-button:hover {
+    background-color: rgb(106 173 251);
+}
+
+.form-checkbox {
+    margin-top: 10px;
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+.form-submit {
+    background-color: #3861fb;;
+    color: #fff;
+    padding: 10px 20px;
+    border: solid 1px #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+
+.form-submit:hover {
+    background-color: #fff;
+    color: #3861fb;
+    border: solid 1px #3861fb;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+.result {
+    color: #333;
+    text-align: center;
+}

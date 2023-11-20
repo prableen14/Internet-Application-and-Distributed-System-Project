@@ -1,14 +1,49 @@
 {% extends 'cryptoApp/base.html' %}
+{% load static %}
 
 {% block body_block %}
-  <div class="form-container">
-    <h2 class="text-center">Sign up</h2>
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-group">
-        <button type="submit">Sign up </button>
+    <div class="registration-container">
+        <div class="registration-form-container">
+            <h2 class="registration-heading">Create an account</h2>
+            <form method="post" enctype="multipart/form-data" class="registration-form">
+                {% csrf_token %}
+                 <div class="form-group">
+                    <label for="{{ form.name.id_for_label }}">Name:</label>
+                    <br>
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username:</label>
+                    <br>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email:</label>
+                    <br>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password1.id_for_label }}">Password:</label>
+                    <br>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.id_or_photo.id_for_label }}">Profile Photo:</label>
+                    <br>
+                    {{ form.id_or_photo }}
+                </div>
+                <button type="submit" class="registration-button">Create account</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="{% url 'login' %}" class="login-button" >Login</a></p>
+        </div>
+        <div class="crypto-container">
+            <div class="crypto-text-container">
+                <h1 class="crypto-heading">Do more with crypto, only on Byenance</h1>
+                <p class="crypto-subtext">Set up your account and upload your photo ID to get started.</p>
+            </div>
+            <div class="crypto-image-container">
+                <img src="{% static 'cryptoApp/images/signupimage.svg' %}" alt="Crypto Image">
+            </div>
+        </div>
     </div>
-</form>
-  </div>
 {% endblock %}
