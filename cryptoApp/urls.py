@@ -14,6 +14,11 @@ urlpatterns = [
     path('coin/<int:coin_id>', views.coin_detail, name='coin_detail'),
     path('converter/', views.converter, name='converter'),
     path('socials_home/', views.socials_home, name="socials_home"),
+    path('transaction/', views.user_transactions, name='user_transactions'),
+    path('wallet/<int:coin_id>/', views.wallet_view, name='wallet_view'),
+    path('sell_transaction/<int:transaction_id>/', views.sell_transaction, name='sell_transaction'),
+    path('success/', views.success_view, name='success_view'),
+    path('failure/', views.insufficient_balance_view, name='insufficient_balance_view'),
     path(
       'articles/create/', ArticleCreateView.as_view(),
       name='article_create'

@@ -1,0 +1,49 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crypto Converter</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoApp/payment.css' %}">
+
+    </head>
+    <body>
+
+
+<div class="mycustomform">
+    <form method="post" action="{% url 'wallet_view' coin.id %}" class="fc1">
+        {% csrf_token %}
+        <div class="left-column">
+            <label for="id_order_name">Order Name:</label>
+            {{ form.order_name }}
+
+            <label for="id_order_price">Order Price:</label>
+            {{ form.order_price }}
+        </div>
+
+        <div class="right-column">
+            <label for="id_card_number">Card Number:</label>
+            {{ form.card_number }}
+            {{ form.card_number.errors }}
+
+        <label for="id_cardholder_name">Cardholder Name:</label>
+            {{ form.cardholder_name }}
+            {{ form.cardholder_name.errors }}
+
+            <label for="id_expiry_date">Expiry Date:</label>
+        {{ form.expiry_date }}
+        {{ form.expiry_date.errors }}
+
+            <label for="id_cvv">CVV:</label>
+                    {{ form.cvv }}
+                    {{ form.cvv.errors }}
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+    </body>
+{% endblock %}

@@ -10,6 +10,7 @@ class CustomUser(AbstractUser):
     groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='customuser_set', blank=True)
     createdDate = models.DateTimeField(auto_now_add=True)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=500.00)
 
 
 class Coin(models.Model):
@@ -72,3 +73,18 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Transaction(models.Model):
+    TRANSACTION_TYPES = (
+        ('buy', 'Buy'),
+        ('sell', 'Sell'),
+    )
+
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    order = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    transaction_type = models.CharField(max_length=4, choices=TRANSACTION_TYPES)
+    balance_after_transaction = models.DecimalField(max_digits=10, decimal_places=2)
+    sold = models.BooleanField(default=False)
