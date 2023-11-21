@@ -241,3 +241,50 @@ input[type="file"] {
 .login-page-button:hover {
     background-color: #acefef;
 }
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-popover {
+    max-width: 200px;
+    padding: 10px;
+}
+
+.profile-popover p {
+    margin: 0;
+}
+
+.profile-popover .btn {
+    margin-top: 10px;
+    width: 100%;
+}
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.profile-picture {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.profile-popover .logout-button {
+    background-color: #50a9bd;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-popover .logout-button:hover {
+    background-color: #6cc0c0;
+}
