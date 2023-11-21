@@ -40,12 +40,6 @@ def custom_login(request):
 
     return render(request, 'cryptoApp/login.html', {'form': form})
 
-
-@login_required
-def profile_view(request):
-    user = request.user
-    return render(request, 'cryptoApp/profile.html', {'user': user})
-
 @login_required
 def logout_view(request):
     logout(request)

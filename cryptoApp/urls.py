@@ -8,7 +8,6 @@ from cryptoApp.article_views import (
 urlpatterns = [
     path('', views.home, name='home'),
     path('signup/', views.signup_view, name='signup'),
-    path('profile/', views.profile_view, name='profile'),
     path('login/', views.custom_login, name='login'),
     path('logout/', views.logout_view, name='logout_view'),
     path('index/', views.index, name='index'),
