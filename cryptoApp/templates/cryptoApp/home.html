@@ -1,0 +1,46 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Your Gateway to Financial Freedom!</h2>
+                    <p>Explore the limitless possibilities of cryptocurrency trading. Secure, fast, and transparent transactions await you in the world of digital assets. Revolutionize your financial journey with Byenance.</p>
+                    <a href="{% url 'signup' %}" class="sign-up-button">Sign Up</a>
+                    <a href="{% url 'login' %}" class="get-started-button">Login</a>
+                </div>
+                <div class="col-md-6">
+                    <img id="cryptoImage" class="svg-image" src="{% static 'cryptoApp/images/bitcoin.svg' %}" alt="Bitcoin Image">
+                </div>
+            </div>
+        </div>
+        <script>
+            var imagePaths = [
+                "{% static 'cryptoApp/images/bitcoin.svg' %}",
+                "{% static 'cryptoApp/images/binance.svg' %}",
+                "{% static 'cryptoApp/images/filecoin.svg' %}",
+                "{% static 'cryptoApp/images/tether.svg' %}",
+                "{% static 'cryptoApp/images/ethereum.svg' %}",
+                "{% static 'cryptoApp/images/binance.svg' %}",
+                "{% static 'cryptoApp/images/dogecoin.svg' %}",
+                "{% static 'cryptoApp/images/sberbank.svg' %}",
+                "{% static 'cryptoApp/images/vechain.svg' %}",
+                "{% static 'cryptoApp/images/zcash.svg' %}",
+                "{% static 'cryptoApp/images/theta-network.svg' %}",
+                "{% static 'cryptoApp/images/dash-cryptocurrency.svg' %}",
+                "{% static 'cryptoApp/images/polkadot.svg' %}",
+            ];
+
+            var currentIndex = 0;
+
+            function changeImage() {
+                document.getElementById("cryptoImage").src = imagePaths[currentIndex];
+                currentIndex = (currentIndex + 1) % imagePaths.length;
+            }
+
+            setInterval(changeImage, 2000);
+        </script>
+    </body>
+{% endblock %}
