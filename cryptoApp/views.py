@@ -7,6 +7,8 @@ from .models import Coin, CurrencyConverter, CustomUser, Transaction
 from django.utils import timezone
 from django.contrib import messages
 
+def home(request):
+    return render(request, 'cryptoApp/home.html')
 
 def signup_view(request):
     if request.method == 'POST':
@@ -30,7 +32,7 @@ def custom_login(request):
         if user is not None:
             print("User authenticated:", user.username)
             login(request, user)
-            return redirect('profile')
+            return redirect('index')
         else:
             print("Authentication failed for user:", username)
     else:
