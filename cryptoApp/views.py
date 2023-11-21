@@ -1,9 +1,11 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser
-import requests
+from .models import Coin, CurrencyConverter, CustomUser, Transaction
+#import requests
+from django.utils import timezone
+from django.contrib import messages
 
 
 def signup_view(request):
@@ -123,3 +125,90 @@ def get_hightlight_details():
 
 def socials_home(request):
     return render(request, 'cryptoApp/socials_home.html',{})
+
+
+@login_required
+def wallet_view(request, coin_id=None):
+    user = request.user
+
+    try:
+        order = Coin.objects.get(pk=coin_id)
+        form = TransactionForm(order, request.POST or None)
+
+        if request.method == 'POST' and form.is_valid():
+            order_price = order.price
+
+            # Check if the order price is less than or equal to the user's balance
+            if order_price <= user.balance:
+                # Calculate balance_after_transaction
+                balance_after_transaction = user.balance - order_price
+
+                # Create and save the Transaction model
+                transaction = Transaction.objects.create(
+                    user=user,
+                    order=order,
+                    timestamp=timezone.now(),
+                    transaction_type='buy',
+                    balance_after_transaction=balance_after_transaction
+                )
+
+                # Update user balance
+                user.balance = balance_after_transaction
+                user.save()
+
+                return redirect('success_view')
+            else:
+                # Display an error message or take appropriate action
+                return redirect('insufficient_balance_view')
+
+        return render(request, 'cryptoApp/payment.html', {'form': form, 'order': order, 'coin': order})
+
+    except Coin.DoesNotExist:
+        print(f"Order with id {coin_id} not found.")
+        return render(request, 'cryptoApp/payment.html', {'form': None, 'order': None})
+
+def success_view(request):
+    return render(request, 'cryptoApp/sell_transaction.html')
+
+def insufficient_balance_view(request):
+    return render(request, 'cryptoApp/paymentfailure.html')
+
+@login_required()
+def user_transactions(request):
+    user = request.user
+    transactions = Transaction.objects.filter(user=user)
+
+    return render(request, 'cryptoApp/transaction_history.html', {'transactions': transactions})
+
+
+@login_required()
+def sell_transaction(request, transaction_id):
+    buy_transaction = get_object_or_404(Transaction, pk=transaction_id)
+    order_price = buy_transaction.order.price
+    # Check if the transaction is a 'buy' type before attempting to sell
+    if buy_transaction.transaction_type == 'buy':
+        if buy_transaction.sold:
+            # Handle the case where the order has already been sold
+            messages.error(request, "This order has already been sold.")
+            return redirect('user_transactions')
+        # Create a new 'sell' transaction
+        buy_transaction.sold = True
+        buy_transaction.save()
+        sell_transaction = Transaction(
+            user=request.user,
+            order=buy_transaction.order,  # Use the same order as the buy transaction
+            timestamp=timezone.now(),
+            transaction_type='sell',
+            balance_after_transaction=request.user.balance + buy_transaction.order.price,
+        )
+
+        # Save the new 'sell' transaction
+        sell_transaction.save()
+
+        # Update the user's balance
+        request.user.balance = sell_transaction.balance_after_transaction
+        request.user.save()
+        # Redirect to the user_transactions page
+        return redirect('success_view')
+
+    return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})

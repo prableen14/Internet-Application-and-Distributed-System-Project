@@ -1,0 +1,37 @@
+{% extends 'cryptoApp/base.html' %}
+
+{% load static %}
+<!-- success_page.html -->
+
+
+{% block body_block %}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoApp/payment.css' %}">
+
+    </head>
+    <body>
+    <div class="success-page-container">
+    <div class="success-container">
+        <div class="tick-container">
+            <div class="tick-mark">&#10004;</div>
+            <div class="circle"></div>
+        </div>
+        <div class="success-message">Transaction Completed Successfully!</div>
+    </div>
+    </div>
+
+    <footer class="footer mt-auto">
+      <div class="container">
+       <p>&copy; 2023 Byenance</p>
+        <p>
+          <a href="{% url 'user_transactions' %}">Check Transaction History</a> |
+          <a href="{% url 'index' %}">Go Back to Main Page</a>
+        </p>
+      </div>
+    </footer>
+    </body>
+{% endblock %}

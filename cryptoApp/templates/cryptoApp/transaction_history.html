@@ -1,0 +1,62 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoApp/payment.css' %}">
+        <title>Your Transactions</title>
+    </head>
+
+    <body>
+
+
+<div class="transaction-history-body">
+<h2>Your Transactions</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Coin</th>
+        <th>Transaction Type</th>
+          <th>Price</th>
+        <th>Timestamp</th>
+        <th>Balance After Transaction</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction.order.name }}</td>
+          <td>
+          {% if transaction.transaction_type == 'buy' %}
+                        Purchased
+                    {% elif transaction.transaction_type == 'sell' %}
+                        Sold
+                    {% endif %}
+          </td>
+        <td>${{ transaction.order.price }}</td>
+          <td>{{ transaction.timestamp }}</td>
+          <td>${% if transaction.transaction_type == 'buy' %}
+                {{ transaction.balance_after_transaction }} <span class="arrow-down"></span>
+            {% elif transaction.transaction_type == 'sell' %}
+                {{ transaction.balance_after_transaction }} <span class="arrow-up"></span>
+            {% endif %}
+          </td>
+
+          <td>
+            {% if transaction.transaction_type == 'buy' and not transaction.sold %}
+              <a href="{% url 'sell_transaction' transaction.id %}" class="sell-button">Sell</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+    </body>
+{% endblock %}
