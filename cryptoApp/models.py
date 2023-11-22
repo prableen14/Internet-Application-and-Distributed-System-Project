@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Group, Permission
 from django.conf import settings
-
+from django.db.models.signals import post_save
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -56,6 +56,9 @@ class SocialsProfile(models.Model):
                                      related_name="followed_by",
                                      symmetrical=False,
                                      blank=True)
+    date_modified = models.DateTimeField(User, auto_now=True)
+    def __str__(self):
+        return self.user.username
     # one user can follow many profiles - ManyToManyField
     # related_name - will be using this later for search query
     # symmetrical -  False -  so that if I follow someone they don't have to necessarily follow me
@@ -88,3 +91,21 @@ class Transaction(models.Model):
     transaction_type = models.CharField(max_length=4, choices=TRANSACTION_TYPES)
     balance_after_transaction = models.DecimalField(max_digits=10, decimal_places=2)
     sold = models.BooleanField(default=False)
+
+def create_socialsprofile(sender, instance, created, **kwargs):
+    if created:
+        user_socialsprofile, created = SocialsProfile.objects.get_or_create(user=instance)
+        if created:
+            user_socialsprofile.follows.add(user_socialsprofile)
+            user_socialsprofile.save()
+
+        # Connect the signal
+        post_save.connect(create_socialsprofile, sender=CustomUser)
+
+        # user_socialsprofile = SocialsProfile(user=instance)
+        # user_socialsprofile.save()
+        # user_socialsprofile.follows.add([user_socialsprofile.id])
+        # user_socialsprofile.save()
+
+
+# post_save.connect(create_socialsprofile, sender=CustomUser)

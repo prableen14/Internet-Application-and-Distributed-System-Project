@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile
 #import requests
 from django.utils import timezone
 from django.contrib import messages
@@ -208,3 +208,11 @@ def sell_transaction(request, transaction_id):
         return redirect('success_view')
 
     return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})
+
+def socials_profile_list(request):
+    if request.user.is_authenticated:
+        profiles = SocialsProfile.objects.exclude(user=request.user)
+        return render(request, 'cryptoApp/socials_profile_list.html', {"profiles": profiles})
+    else:
+        messages.success(request, ("You must be logged in to view this page ..."))
+        return redirect(request, 'cryptoApp/index.html')

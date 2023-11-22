@@ -28,4 +28,7 @@ urlpatterns = [
       'articles/<int:pk>/', ArticleDetailView.as_view(),
       name='article_detail'
     ),
+path('socials_profile_list/', views.socials_profile_list, name="socials_profile_list"),
+    path('socials_profile/<int:pk>', views.socials_profile_list, name="socials_profile_list"),
+
 ]
