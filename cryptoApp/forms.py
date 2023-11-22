@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from .models import CustomUser, Coin, Currency, Article, Transaction
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from datetime import date
@@ -23,6 +24,28 @@ class SignUpForm(UserCreationForm):
             'required': "This field is required.",
         },
     )
+    email = forms.EmailField(
+        max_length=255,
+        error_messages={
+            'invalid': "Enter a valid email address.",
+            'required': "This field is required.",
+        },
+    )
+
+    id_or_photo = forms.ImageField(
+        required=True,
+        error_messages={
+            'required': "This field is required.",
+        },
+    )
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        User = get_user_model()
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("This username is already in use. Please choose a different one.")
+        return username
+
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
         user.first_name = self.cleaned_data['name']
