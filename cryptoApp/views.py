@@ -15,7 +15,7 @@ def signup_view(request):
         form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            # login(request, user)
             return redirect('login')
     else:
         form = SignUpForm()
@@ -34,7 +34,7 @@ def custom_login(request):
             login(request, user)
             return redirect('index')
         else:
-            print("Authentication failed for user:", username)
+            messages.error(request, 'Invalid username or password. Please try again.')
     else:
         form = CustomAuthenticationForm()
 
