@@ -1,8 +1,15 @@
 # Create your models here.
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser, Group, Permission
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.conf import settings
 from django.db.models.signals import post_save
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
+from django.db.models.signals import post_save
+
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -49,22 +56,6 @@ class CurrencyConverter(models.Model):
         return f"{self.amount} {self.coin.symbol} to {self.currency}"
 
 
-class SocialsProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE)  # one user will have only onle profile
-    follows = models.ManyToManyField("self",
-                                     related_name="followed_by",
-                                     symmetrical=False,
-                                     blank=True)
-    date_modified = models.DateTimeField(User, auto_now=True)
-    def __str__(self):
-        return self.user.username
-    # one user can follow many profiles - ManyToManyField
-    # related_name - will be using this later for search query
-    # symmetrical -  False -  so that if I follow someone they don't have to necessarily follow me
-    # blank=True - this means that if i want to I don't have to follow anyone
-
-
 class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -76,7 +67,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 class Transaction(models.Model):
@@ -92,20 +82,30 @@ class Transaction(models.Model):
     balance_after_transaction = models.DecimalField(max_digits=10, decimal_places=2)
     sold = models.BooleanField(default=False)
 
-def create_socialsprofile(sender, instance, created, **kwargs):
+from django.utils import timezone
+class Profile(models.Model):
+    objects = None
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    follows = models.ManyToManyField("self",
+                                     related_name="followed_by",
+                                     symmetrical=False,
+                                     blank=True)
+    date_modified = models.DateTimeField(User,auto_now=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+# creating a profile when new users signup
+def create_profile(sender, instance, created, **kwargs):
     if created:
-        user_socialsprofile, created = SocialsProfile.objects.get_or_create(user=instance)
-        if created:
-            user_socialsprofile.follows.add(user_socialsprofile)
-            user_socialsprofile.save()
-
-        # Connect the signal
-        post_save.connect(create_socialsprofile, sender=CustomUser)
-
-        # user_socialsprofile = SocialsProfile(user=instance)
-        # user_socialsprofile.save()
-        # user_socialsprofile.follows.add([user_socialsprofile.id])
-        # user_socialsprofile.save()
+        user_profile = Profile(user=instance)  # creating a profile automatically for every user that gets created
+        user_profile.save()
+        # user follow themselves
+        user_profile.follows.set([instance.profile.id])  # I am getting the id from the migrations file
+        user_profile.save()  # we save twice because first we have to save the profile that was created and the
+        # second time when they are followed
 
 
-# post_save.connect(create_socialsprofile, sender=CustomUser)
+post_save.connect(create_profile, sender=User)  # when a new user has been saved we will create a new profile
+

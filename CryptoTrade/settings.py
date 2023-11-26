@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cryptoApp.apps.CryptoappConfig',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

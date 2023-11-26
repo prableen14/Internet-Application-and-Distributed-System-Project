@@ -1,0 +1,39 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+<h1>profile list</h1>
+<br/>
+
+{% if profiles %}
+  {% for profile in profiles %}
+    {% if profile.user %}
+
+
+<div class="card" style="width: 18rem;">
+  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ profile.user.username }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Follow {{ profile.user.username|lower }}</a>
+  </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated at {{profile.date_modified}} </small>
+          </div>
+</div>
+<br/>
+<br/>
+
+
+
+
+
+
+
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

@@ -1,11 +1,15 @@
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.sites import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile
 #import requests
 from django.utils import timezone
 from django.contrib import messages
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
+
 
 def home(request):
     return render(request, 'cryptoApp/home.html')
@@ -119,10 +123,6 @@ def get_hightlight_details():
     return result
 
 
-def socials_home(request):
-    return render(request, 'cryptoApp/socials_home.html',{})
-
-
 @login_required
 def wallet_view(request, coin_id=None):
     user = request.user
@@ -209,10 +209,12 @@ def sell_transaction(request, transaction_id):
 
     return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})
 
-def socials_profile_list(request):
-    if request.user.is_authenticated:
-        profiles = SocialsProfile.objects.exclude(user=request.user)
-        return render(request, 'cryptoApp/socials_profile_list.html', {"profiles": profiles})
-    else:
-        messages.success(request, ("You must be logged in to view this page ..."))
-        return redirect(request, 'cryptoApp/index.html')
+
+def s_home(request):
+    return render(request, 'cryptoApp/s_home.html',{})
+
+
+def profile_list(request):
+    profiles = Profile.objects.exclude(user=request.user)
+    return render(request, 'cryptoApp/profile_list.html',{"profiles":profiles})
+    # return render(request, 'cryptoApp/profile_list.html', {})
