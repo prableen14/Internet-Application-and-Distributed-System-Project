@@ -1,7 +1,7 @@
 # Register your models here.
 from django.contrib import admin
 from django.db import models
-from .models import CustomUser, Coin, Transaction, Profile
+from .models import CustomUser, Coin, Transaction, Profile, Beet
 from django.contrib.auth.models import Group, User
 
 
@@ -23,3 +23,4 @@ admin.site.register(Transaction)
 # admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Profile)
+admin.site.register(Beet)

@@ -1,9 +1,9 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.sites import requests
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile, Beet
 # import requests
 from django.utils import timezone
 from django.contrib import messages
@@ -219,7 +219,21 @@ def sell_transaction(request, transaction_id):
 
 
 def s_home(request):
-    return render(request, 'cryptoApp/s_home.html', {})
+    if request.user.is_authenticated:
+        form = BeetForm(request.POST or None)
+        if request.method == "POST":
+            if form.is_valid():
+                beet = form.save(commit=False)
+                beet.user = request.user  # saving the beets based on who has logged in
+                beet.save()
+                messages.success(request, "your Beet has been posted...")
+                return redirect ('s_home')
+
+        beets = Beet.objects.all().order_by("-created_at")
+        return render(request, 'cryptoApp/s_home.html', {"beets":beets, "form":form}) # the form shows up only if user has logged in
+    else:
+        beets = Beet.objects.all().order_by("-created_at")
+        return render(request, 'cryptoApp/s_home.html', {"beets": beets})
 
 
 def profile_list(request):
@@ -234,6 +248,7 @@ def profile_list(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
+        beets = Beet.objects.filter(user_id=pk).order_by("-created_at")
 
         # post form logic
         if request.method == 'POST':
@@ -248,7 +263,7 @@ def profile(request, pk):
             # save profile
             current_user_profile.save()
 
-        return render(request, "cryptoApp/profile.html", {"profile": profile})
+        return render(request, "cryptoApp/profile.html", {"profile": profile, "beets": beets})
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')

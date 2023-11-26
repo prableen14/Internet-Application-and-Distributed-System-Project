@@ -110,3 +110,18 @@ def create_profile(sender, instance, created, **kwargs):
 
 post_save.connect(create_profile, sender=User)  # when a new user has been saved we will create a new profile
 
+
+class Beet(models.Model):
+    user = models.ForeignKey(
+        User, related_name="beets",
+        on_delete=models.DO_NOTHING
+    )
+    body = models.CharField(max_length=200)
+    created_at=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return( f"{self.user} "
+                f"({self.created_at:%Y/%m/%d %H:%M}): "
+                f"{self.body}..."
+                )
+

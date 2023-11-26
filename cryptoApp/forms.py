@@ -1,10 +1,13 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import CustomUser, Coin, Currency, Article, Transaction
+from .models import CustomUser, Coin, Currency, Article, Transaction, Beet
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from datetime import date
+
+
 class SignUpForm(UserCreationForm):
     name = forms.CharField(max_length=255, label='Name')
+
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'id_or_photo']
@@ -57,6 +60,7 @@ class SignUpForm(UserCreationForm):
         super(SignUpForm, self).__init__(*args, **kwargs)
         self.fields['password2'].widget = forms.HiddenInput()
         self.fields.pop('password2', None)
+
 
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
@@ -149,3 +153,17 @@ class TransactionForm(forms.Form):
             raise forms.ValidationError('Expiry date must be greater than or equal to the current month and year.')
 
         return expiry_date
+
+
+class BeetForm(forms.ModelForm):
+    body = forms.CharField(required=True,
+                           widget=forms.widgets.Textarea(
+                               attrs={"placeholder": "What are you thinking today? ",
+                                      "class": "form-control"}
+                           ),
+                           label="",
+                           )
+
+    class Meta:
+        model = Beet
+        exclude = ("user",)
