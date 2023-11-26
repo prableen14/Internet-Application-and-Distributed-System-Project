@@ -23,5 +23,6 @@ urlpatterns = [
     path('articles/<int:pk>/', ArticleDetailView.as_view(),name='article_detail'),
     path('s_home/',views.s_home, name="s_home"),
     path('profile_list/', views.profile_list, name='profile_list'),
+    path('profile/<int:pk>', views.profile, name='profile' ),
 
 ]

@@ -11,6 +11,7 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 
+
 def home(request):
     return render(request, 'cryptoApp/home.html')
 
@@ -215,6 +216,18 @@ def s_home(request):
 
 
 def profile_list(request):
-    profiles = Profile.objects.exclude(user=request.user)
-    return render(request, 'cryptoApp/profile_list.html',{"profiles":profiles})
-    # return render(request, 'cryptoApp/profile_list.html', {})
+    if request.user.is_authenticated:
+        profiles = Profile.objects.exclude(user=request.user)
+        return render(request, 'cryptoApp/profile_list.html',{"profiles":profiles})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+def profile(request, pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user_id=pk)
+        return render(request, "cryptoApp/profile.html", {"profile":profile})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')

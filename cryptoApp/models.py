@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.utils import timezone
 
 User = settings.AUTH_USER_MODEL
 from django.db.models.signals import post_save
@@ -82,7 +83,7 @@ class Transaction(models.Model):
     balance_after_transaction = models.DecimalField(max_digits=10, decimal_places=2)
     sold = models.BooleanField(default=False)
 
-from django.utils import timezone
+
 class Profile(models.Model):
     objects = None
     user = models.OneToOneField(User, on_delete=models.CASCADE)

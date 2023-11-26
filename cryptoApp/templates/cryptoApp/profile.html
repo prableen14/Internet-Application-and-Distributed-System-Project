@@ -1,0 +1,56 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+{% if profile %}
+<h1> {{profile.user.username}}'s Profile </h1> <br/><br/>
+
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">Followed By</div>
+  <ul class="list-group list-group-flush">
+
+      {% for following in profile.follows.all %}
+      <li class="list-group-item">
+          <a class="btn btn-primary" href="{% url 'profile' following.user.id %}" role="button">View</a>
+          {{following}}
+      </li>
+      {% endfor %}
+  </ul>
+</div>
+<br/><br/>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">Followed By</div>
+  <ul class="list-group list-group-flush">
+
+      {% for following in profile.followed_by.all %}
+      <li class="list-group-item">
+          <a class="btn btn-primary" href="{% url 'profile' following.user.id %}" role="button">View</a>
+          {{following}}
+      </li>
+      {% endfor %}
+  </ul>
+</div>
+<br/><br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'cryptoApp/footer.html' %}
+
+{% endif %}
+{% endblock %}
+

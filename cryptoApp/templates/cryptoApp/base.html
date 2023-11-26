@@ -54,7 +54,8 @@
       </div>
     </nav>
 
-            {% if messages%}
+      <br/>
+      {% if messages%}
       {% for message in messages%}
 
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -65,7 +66,7 @@
       {% endfor %}
       {% endif%}
 
-      <div class="container">
+      <div class="container-fluid">
   {% block body_block %}
         {% endblock %}
       </div>
