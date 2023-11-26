@@ -4,16 +4,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
 from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile
-#import requests
+# import requests
 from django.utils import timezone
 from django.contrib import messages
 from django.conf import settings
-User = settings.AUTH_USER_MODEL
 
+User = settings.AUTH_USER_MODEL
 
 
 def home(request):
     return render(request, 'cryptoApp/home.html')
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -45,10 +46,13 @@ def custom_login(request):
 
     return render(request, 'cryptoApp/login.html', {'form': form})
 
+
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
 def index(request):
     coins = Coin.objects.all()
     highlight = get_hightlight_details()
@@ -164,11 +168,14 @@ def wallet_view(request, coin_id=None):
         print(f"Order with id {coin_id} not found.")
         return render(request, 'cryptoApp/payment.html', {'form': None, 'order': None})
 
+
 def success_view(request):
     return render(request, 'cryptoApp/sell_transaction.html')
 
+
 def insufficient_balance_view(request):
     return render(request, 'cryptoApp/paymentfailure.html')
+
 
 @login_required()
 def user_transactions(request):
@@ -212,13 +219,13 @@ def sell_transaction(request, transaction_id):
 
 
 def s_home(request):
-    return render(request, 'cryptoApp/s_home.html',{})
+    return render(request, 'cryptoApp/s_home.html', {})
 
 
 def profile_list(request):
     if request.user.is_authenticated:
         profiles = Profile.objects.exclude(user=request.user)
-        return render(request, 'cryptoApp/profile_list.html',{"profiles":profiles})
+        return render(request, 'cryptoApp/profile_list.html', {"profiles": profiles})
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
@@ -227,7 +234,21 @@ def profile_list(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
-        return render(request, "cryptoApp/profile.html", {"profile":profile})
+
+        # post form logic
+        if request.method == 'POST':
+            # getting the current user
+            current_user_profile = request.user.profile
+            # get data from the form (follow and unfollow button)
+            action = request.POST['follow']
+            if action == "unfollow":
+                current_user_profile.follows.remove(profile)
+            elif action == "follow":
+                current_user_profile.follows.add(profile)
+            # save profile
+            current_user_profile.save()
+
+        return render(request, "cryptoApp/profile.html", {"profile": profile})
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
