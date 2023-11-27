@@ -2,13 +2,15 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile
-#import requests
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile, Article
+import requests
 from django.utils import timezone
 from django.contrib import messages
 
+
 def home(request):
     return render(request, 'cryptoApp/home.html')
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -40,10 +42,13 @@ def custom_login(request):
 
     return render(request, 'cryptoApp/login.html', {'form': form})
 
+
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
 def index(request):
     coins = Coin.objects.all()
     highlight = get_hightlight_details()
@@ -105,22 +110,27 @@ def converter(request):
 def get_hightlight_details():
     # Get the 3 most recently added coins
     recently_added_coins = Coin.objects.order_by('-createdDate')[:3]
-    print(recently_added_coins)
 
     # Get the 3 trending coins (you can customize the criteria for trending)
     trending_coins = Coin.objects.order_by('-percentage_change_24h')[:3]
+
     recent_users = CustomUser.objects.order_by('-createdDate')[:3]
+
+    # Retrieve the three most recent articles
+    recent_articles = Article.objects.order_by('-created_at')[:2]
+    print(recent_articles)
 
     result = {
         'recently_added_coins': recently_added_coins,
         'trending_coins': trending_coins,
         'recent_users': recent_users,
+        'recent_articles': recent_articles
     }
     return result
 
 
 def socials_home(request):
-    return render(request, 'cryptoApp/socials_home.html',{})
+    return render(request, 'cryptoApp/socials_home.html', {})
 
 
 @login_required

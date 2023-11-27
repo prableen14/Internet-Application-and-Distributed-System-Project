@@ -78,30 +78,26 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="carousel-item-heading">⭐New users</div>
+                    <div class="carousel-item-heading">⭐ New users</div>
                     {% for user in highlight_data.recent_users %}
                         <div class="carousel-item-group">
                             <div class="carousel-item-item">{{ forloop.counter }}</div>
                             <div class="carousel-item-img">
-                                {#                            <img src="{{ coin.coin_url }}" alt="{{ coin.name }}"/>#}
-                                {#                            <img src="{% if user.id_or_photo %}{{ user.id_or_photo }}{% else %}../../static/cryptoApp/assets/only-logo.png{% endif %}" alt="{{ user.name }}"/>#}
-                                😘
+                                <div class="carousel-item-img-letter">
+                                    {{ user.email|first }}
+                                </div>
                             </div>
                             <div class="carousel-item-name">{{ user.email }}</div>
                         </div>
                     {% endfor %}
                 </div>
                 <div class="carousel-item">
-                    <div class="carousel-item-heading">⌚Recently Added</div>
-                    {% for coin in highlight_data.recently_added_coins %}
-                        <div class="carousel-item-group">
-                            <div class="carousel-item-item">{{ forloop.counter }}</div>
-                            <div class="carousel-item-img">
-                                {#                            <img src="{{ coin.coin_url }}" alt="{{ coin.name }}"/>#}
-                                <img src="../../static/cryptoApp/assets/only-logo.png" alt="{{ coin.name }}"/>
-                            </div>
-                            <div class="carousel-item-name">{{ coin.name }}</div>
-                            <div class="carousel-item-price">${{ coin.price }}</div>
+                    <div class="carousel-item-heading">⌚ Most Recent Community Articles</div>
+                    {% for article in highlight_data.recent_articles %}
+                        <div class="carousel-item-group" style="justify-content: space-between">
+                            <div class="carousel-item-item" style="width: 20px">{{ forloop.counter }}</div>
+                            <div class="carousel-item-name" style="width: 100%">{{ article.title|truncatewords:10 }}</div>
+                            <a class="carousel-item-price" style="width: 81px" href="{% url 'article_detail' article.id %}" target="_blank">Read more</a>
                         </div>
                     {% endfor %}
                 </div>
