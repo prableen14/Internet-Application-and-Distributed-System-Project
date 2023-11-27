@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, AbstractUser, Group, Permission
 from django.conf import settings
 from django.db.models.signals import post_save
 
+
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     id_or_photo = models.FileField(upload_to='id_photos/', null=True, blank=True)
@@ -76,7 +77,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 class Transaction(models.Model):
