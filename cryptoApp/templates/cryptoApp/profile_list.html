@@ -37,7 +37,14 @@
       {% if profile.user %}
         <div class="col-md-4 mb-4 col-lg-4 col-xl-2  ">
           <div class="card" style="width: 18rem;">
+
+            {% if profile.profile_image %}
+            <img src=" {{profile.profile_image.url}} " width="200 height=200" class="card-img-top" alt="{{profile.user.username}}">
+             {% else %}
             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">
+
+            {% endif %}
+<!--            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">-->
             <div class="card-body">
               <h5 class="card-title">{{ profile.user.username }}</h5>
 

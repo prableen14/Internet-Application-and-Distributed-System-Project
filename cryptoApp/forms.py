@@ -166,7 +166,7 @@ class BeetForm(forms.ModelForm):
 
     class Meta:
         model = Beet
-        exclude = ("user",)
+        exclude = ("user","likes",)
 
 
 class ProfilePicForm(forms.ModelForm):

@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.sites import requests
+# from django.contrib.sites import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm
 from django.contrib.auth.decorators import login_required
@@ -11,6 +12,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+# from django.contrib.sites.models import Site
 
 
 User = settings.AUTH_USER_MODEL
@@ -298,6 +300,18 @@ def update_user(request):
 
 
 
+def beet_like(request, pk):
+    if request.user.is_authenticated:
+        beet = get_object_or_404(Beet, id=pk)
+        if beet.likes.filter(id=request.user.id):
+            beet.likes.remove(request.user)
+        else:
+            beet.likes.add(request.user)
+        return redirect('s_home')
+
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
 
 
 

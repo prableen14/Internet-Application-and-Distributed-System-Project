@@ -32,7 +32,14 @@
 
             {% for beet in beets %}
                 <div class="alert alert-primary" role="alert">
-                    {{beet}}
+                    {{beet}} - {{beet.number_of_likes}} Likes
+
+                    {% if user in beet.likes.all %}
+                         <a href=" {% url 'beet_like' beet.id %} ">UNLIKE</a>
+                    {% else %}
+                        <a href=" {% url 'beet_like' beet.id %} ">LIKE</a>
+                    {% endif %}
+
                 </div>
             {% endfor%}
 
