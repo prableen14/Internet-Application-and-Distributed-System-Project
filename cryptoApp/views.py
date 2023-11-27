@@ -280,8 +280,12 @@ def profile(request, pk):
 
 def update_user(request):
     if request.user.is_authenticated:
-        current_user = User.objects.get(id=request.user.id)
+        current_user = CustomUser.objects.get(id=request.user.id)
         form = SignUpForm(request.POST or None, instance=current_user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully")
+            return redirect('s_home')
         return render(request, "cryptoApp/update_user.html", {'form':form})
     else:
         messages.success(request, "Please login to view this page")
