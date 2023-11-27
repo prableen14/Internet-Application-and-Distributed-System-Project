@@ -81,9 +81,29 @@
                         {% endif %}
                                     </div>
                             <div class="col-10">
-                <h4 class="alert-heading">{{ beet }}</h4>
-                <hr>
-                    </div></div></div></div>
+                                <h4 class="alert-heading">{{ beet }}</h4>
+                                <p class="text-right">- {{beet.number_of_likes}} Likes
+                                {% if user in beet.likes.all %}
+                                <a href=" {% url 'beet_like' beet.id %} ">
+                                    <i class="fa-solid fa-heart" style="color:red"></i>
+                                </a>
+                        {% else %}
+                            <a href=" {% url 'beet_like' beet.id %} ">
+                                <i class="fa fa-heart-o" style="color:red"></i>
+                            </a>
+                        {% endif %}
+                                </p>
+
+                    </div>
+                        {% if request.user.username == profile.user.username %}
+                        <a href=" {% url 'delete_beet' beet.id %} ">
+                                <i class="fas fa-trash-alt" style="color:grey"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

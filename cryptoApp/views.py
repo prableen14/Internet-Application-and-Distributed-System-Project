@@ -307,13 +307,29 @@ def beet_like(request, pk):
             beet.likes.remove(request.user)
         else:
             beet.likes.add(request.user)
-        return redirect('s_home')
+        return redirect(request.META.get("HTTP_REFERER"))
 
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
 
 
+
+def delete_beet(request, pk):
+    if request.user.is_authenticated:
+        beet = get_object_or_404(Beet, id=pk)
+        if request.user.username == beet.user.username:
+            beet.delete()
+
+            messages.success(request, ("The Beet Has Been Deleted!"))
+            return redirect(request.META.get("HTTP_REFERER"))
+        else:
+            messages.success(request, ("You Don't Own That BEET!!"))
+            return redirect('home')
+
+    else:
+        messages.success(request, ("Please Log In To Continue..."))
+        return redirect(request.META.get("HTTP_REFERER"))
 
 
 

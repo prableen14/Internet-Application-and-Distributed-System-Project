@@ -35,9 +35,13 @@
                     {{beet}} - {{beet.number_of_likes}} Likes
 
                     {% if user in beet.likes.all %}
-                         <a href=" {% url 'beet_like' beet.id %} ">UNLIKE</a>
+                         <a href=" {% url 'beet_like' beet.id %} ">
+                             <i class="fa-solid fa-heart" style="color:red"></i>
+                         </a>
                     {% else %}
-                        <a href=" {% url 'beet_like' beet.id %} ">LIKE</a>
+                        <a href=" {% url 'beet_like' beet.id %} ">
+                            <i class="fa fa-heart-o" style="color:red"></i>
+                        </a>
                     {% endif %}
 
                 </div>
