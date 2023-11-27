@@ -3,12 +3,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
 from django.contrib.auth.decorators import login_required
 from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile
-#import requests
+# import requests
 from django.utils import timezone
 from django.contrib import messages
 
+
 def home(request):
     return render(request, 'cryptoApp/home.html')
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -40,12 +42,17 @@ def custom_login(request):
 
     return render(request, 'cryptoApp/login.html', {'form': form})
 
+
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
 def index(request):
     coins = Coin.objects.all()
+    for coin in coins:
+        coin.market_cap = format_money(coin.market_cap)
     highlight = get_hightlight_details()
     return render(request, 'cryptoApp/index.html', {'coins': coins, 'highlight': highlight})
 
@@ -120,7 +127,7 @@ def get_hightlight_details():
 
 
 def socials_home(request):
-    return render(request, 'cryptoApp/socials_home.html',{})
+    return render(request, 'cryptoApp/socials_home.html', {})
 
 
 @login_required
@@ -163,11 +170,14 @@ def wallet_view(request, coin_id=None):
         print(f"Order with id {coin_id} not found.")
         return render(request, 'cryptoApp/payment.html', {'form': None, 'order': None})
 
+
 def success_view(request):
     return render(request, 'cryptoApp/sell_transaction.html')
 
+
 def insufficient_balance_view(request):
     return render(request, 'cryptoApp/paymentfailure.html')
+
 
 @login_required()
 def user_transactions(request):
@@ -208,6 +218,7 @@ def sell_transaction(request, transaction_id):
         return redirect('success_view')
 
     return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})
+
 
 def socials_profile_list(request):
     if request.user.is_authenticated:

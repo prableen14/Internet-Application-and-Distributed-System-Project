@@ -26,14 +26,26 @@
                 <tr class="coin_row" data-bs-toggle="modal" data-bs-target="#coin_modal_{{ coin.symbol }}" data-bs-whatever={{ coin.symbol }}>
                   <th scope="row">{{ coin.id }}</th>
                   <td>
-                      <image class="coin_icon" src={{ coin.icon_url }} />
+                      <image class="coin_icon" alt="" src={{ coin.icon_url }} />
                       {{ coin.name }}
                       {{ coin.symbol }}
                   </td>
                   <td>${{ coin.price }}</td>
-                  <td>{{ coin.percentage_change_1h }}</td>
-                  <td>{{ coin.percentage_change_24h }}</td>
-                  <td>{{ coin.percentage_change_7d }}</td>
+                    {%  if coin.percentage_change_1h < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_1h }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_1h }}</td>
+                    {% endif %}
+                    {%  if coin.percentage_change_24h < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_24h }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_24h }}</td>
+                    {% endif %}
+                    {%  if coin.percentage_change_7d < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_7d }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_7d }}</td>
+                    {% endif %}
                   <td>${{ coin.market_cap }}</td>
                 <td><a href="{% url 'wallet_view' coin.id %}">Buy</a></td>
                 </tr>
