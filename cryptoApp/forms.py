@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from .models import CustomUser, Coin, Currency, Article, Transaction, Beet
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from datetime import date
-
+from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
     name = forms.CharField(max_length=255, label='Name')

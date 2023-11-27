@@ -9,7 +9,7 @@
 
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="{% url 'profile' request.user.id %}">Profile</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'profile' request.user.id %}">Profile</a>
         </li>
 
         {% endif %}
@@ -17,8 +17,13 @@
           <a class="nav-link active" aria-current="page" href="{% url 's_home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile_list' %}">Profile list</a>
+          <a class="nav-link active" href="{% url 'profile_list' %}">Profile list</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'update_user' %}">Update Profile</a>
+        </li>
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -30,9 +35,7 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-disabled="true">Disabled</a>
-        </li>
+
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

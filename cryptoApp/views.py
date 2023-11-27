@@ -8,6 +8,10 @@ from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile, B
 from django.utils import timezone
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+
 
 User = settings.AUTH_USER_MODEL
 
@@ -21,8 +25,13 @@ def signup_view(request):
         form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
-            # login(request, user)
-            return redirect('login')
+            # added logic that will log in the user directly to the page once registered -leafia
+            login(request, user)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user=authenticate(username=username, password=password)
+            messages.success(request, "Welcome to Byenance")
+            return redirect('index')
     else:
         form = SignUpForm()
     return render(request, 'cryptoApp/signup.html', {'form': form})
@@ -267,3 +276,28 @@ def profile(request, pk):
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
+
+
+def update_user(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        form = SignUpForm(request.POST or None, instance=current_user)
+        return render(request, "cryptoApp/update_user.html", {'form':form})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
