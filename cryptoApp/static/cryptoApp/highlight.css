@@ -55,6 +55,18 @@
     object-fit: cover;
 }
 
+.carousel-item-img-letter {
+    background-color: #ccc;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
 .carousel-item-name {
     width: 45%;
 }
