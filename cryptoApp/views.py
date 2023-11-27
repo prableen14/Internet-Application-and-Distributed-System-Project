@@ -1,7 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.sites import requests
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm
 from django.contrib.auth.decorators import login_required
 from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile, Beet
 # import requests
@@ -229,6 +229,7 @@ def sell_transaction(request, transaction_id):
 
 def s_home(request):
     if request.user.is_authenticated:
+        beets = Beet.objects.all().order_by("-created_at")
         form = BeetForm(request.POST or None)
         if request.method == "POST":
             if form.is_valid():
@@ -280,14 +281,17 @@ def profile(request, pk):
 
 def update_user(request):
     if request.user.is_authenticated:
-        current_user = CustomUser.objects.get(id=request.user.id)
-        form = SignUpForm(request.POST or None, instance=current_user)
-        if form.is_valid():
-            form.save()
+        current_user = CustomUser.objects.get(id=request.user.id) # this fetches user
+        profile_user= Profile.objects.get(user__id=request.user.id) # this fetches the profile
+        user_form = SignUpForm(request.POST or None, request.FILES or None , instance=current_user)
+        profile_form = ProfilePicForm(request.POST or None, request.FILES or None , instance=profile_user)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
             login(request, current_user)
             messages.success(request, "Profile updated successfully")
             return redirect('s_home')
-        return render(request, "cryptoApp/update_user.html", {'form':form})
+        return render(request, "cryptoApp/update_user.html", {'user_form':user_form, 'profile_form':profile_form})
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')

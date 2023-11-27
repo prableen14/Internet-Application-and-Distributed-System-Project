@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import CustomUser, Coin, Currency, Article, Transaction, Beet
+from .models import CustomUser, Coin, Currency, Article, Transaction, Beet, Profile
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from datetime import date
 from django.contrib.auth.models import User
@@ -167,3 +167,22 @@ class BeetForm(forms.ModelForm):
     class Meta:
         model = Beet
         exclude = ("user",)
+
+
+class ProfilePicForm(forms.ModelForm):
+    profile_image = forms.ImageField(label="Profile Picture")
+    class Meta:
+        model = Profile
+        fields = ('profile_image', )
+
+
+
+
+
+
+
+
+
+
+
+

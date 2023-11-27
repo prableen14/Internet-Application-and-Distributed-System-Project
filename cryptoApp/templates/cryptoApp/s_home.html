@@ -4,34 +4,43 @@
 
 {% include 'cryptoApp/navbar.html' %}
 
-<br/>
-{% block content%}
-<div classname="container text-center">
+<div class="container">
+    <!-- First Row: Welcome Heading -->
     <div class="row">
-        <div class="col-8">
-
-            <h1>Welcome to Bweeter</h1>
-
-            {% if beet in beets %}
-                {% for beet in beets %}
-                <div class="alert alert-secondary" role="alert">
-                  {{beet}}
-                </div>
-                {% endfor %}
-            {% endif %}
+        <div class="col-12 text-center">
+            <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                Welcome to Bweeter</h1>
         </div>
+    </div>
 
-         <div class="col-4"> <br/><br/><br/>
-             {% if form %}
+    <!-- Second Row: Text Box and Submit Button -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+           {% if form %}
             <form method="POST">
                 {% csrf_token %}
                     {{form.as_p}}
                   <button type="submit" class="btn btn-secondary">Post</button>
                 </form>
              {% endif %}
-         </div>
+        </div>
+    </div>
 
+    <!-- Third Row: Display "Here" -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+
+            {% for beet in beets %}
+                <div class="alert alert-primary" role="alert">
+                    {{beet}}
+                </div>
+            {% endfor%}
+
+
+        </div>
+    </div>
+</div>
 
 {% include 'cryptoApp/footer.html' %}
-{% endblock %}
+
 {% endblock %}
