@@ -12,6 +12,7 @@ User = settings.AUTH_USER_MODEL
 from django.db.models.signals import post_save
 
 
+
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     id_or_photo = models.FileField(upload_to='id_photos/', null=True, blank=True)

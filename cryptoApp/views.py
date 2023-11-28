@@ -4,8 +4,8 @@ from django.contrib.sites import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, Profile, Beet
-# import requests
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile, Article, Beet, Profile
+import requests
 from django.utils import timezone
 from django.contrib import messages
 from django.conf import settings
@@ -17,6 +17,7 @@ from django import forms
 
 
 User = settings.AUTH_USER_MODEL
+
 
 
 def home(request):
@@ -126,16 +127,21 @@ def converter(request):
 def get_hightlight_details():
     # Get the 3 most recently added coins
     recently_added_coins = Coin.objects.order_by('-createdDate')[:3]
-    print(recently_added_coins)
 
     # Get the 3 trending coins (you can customize the criteria for trending)
     trending_coins = Coin.objects.order_by('-percentage_change_24h')[:3]
+
     recent_users = CustomUser.objects.order_by('-createdDate')[:3]
+
+    # Retrieve the three most recent articles
+    recent_articles = Article.objects.order_by('-created_at')[:2]
+    print(recent_articles)
 
     result = {
         'recently_added_coins': recently_added_coins,
         'trending_coins': trending_coins,
         'recent_users': recent_users,
+        'recent_articles': recent_articles
     }
     return result
 
