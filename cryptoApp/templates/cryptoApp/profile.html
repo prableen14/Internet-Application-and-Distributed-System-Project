@@ -1,0 +1,116 @@
+
+
+
+
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+{% if profile %}
+
+<div class="container-fluid ">
+    <!-- First Row: User Name and Follow/Unfollow Button -->
+    <div class="row text-center text-md-left">
+        <div class="col-12 ">
+
+            <br/><br/>
+
+            {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" class="img-thumbnail rounded-circle" style="max-width: 200px; max-height: 200px">
+            {% endif %}
+
+            <h1>{{ profile.user.username }}'s Profile</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {% if profile in user.profile.follows.all %}
+                <button class="btn btn-outline-danger" name="follow" value="unfollow" type="submit">
+                    Unfollow {{ profile.user.username|lower }}
+                </button>
+                {% else %}
+                <button class="btn btn-outline-success" name="follow" value="follow" type="submit">
+                    Follow {{ profile.user.username|lower }}
+                </button>
+                {% endif %}
+            </form>
+            <br/><br/>
+        </div>
+    </div>
+
+    <!-- Second Row: Cards for Followers and Followed By, and Posts (Beets) -->
+    <div class="row">
+        <!-- First Column: Followers and Followed By Cards -->
+        <div class="col-3">
+            <div class="card mb-3">
+                <div class="card-header">Follows</div>
+                <ul class="list-group list-group-flush">
+                    {% for following in profile.follows.all %}
+                    <li class="list-group-item">
+                        <a class="btn btn-primary" href="{% url 'profile' following.user.id %}" role="button">View</a>
+                        {{ following }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Followed By</div>
+                <ul class="list-group list-group-flush">
+                    {% for following in profile.followed_by.all %}
+                    <li class="list-group-item">
+                        <a class="btn btn-primary" href="{% url 'profile' following.user.id %}" role="button">View</a>
+                        {{ following }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Second Column: Beets (Posts) -->
+        <div class="col-6">
+            {% for beet in beets %}
+            <div class="alert alert-success mb-3" role="alert">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-1">
+                        {% if profile.profile_image %}
+                                <img src=" {{profile.profile_image.url}} " width="200 height=200" class="card-img-top" alt="{{profile.user.username}}">
+                         {% else %}
+                                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">
+                        {% endif %}
+                                    </div>
+                            <div class="col-10">
+                                <h4 class="alert-heading">{{ beet }}</h4>
+                                <p class="text-right">- {{beet.number_of_likes}} Likes
+                                {% if user in beet.likes.all %}
+                                <a href=" {% url 'beet_like' beet.id %} ">
+                                    <i class="fa-solid fa-heart" style="color:red"></i>
+                                </a>
+                        {% else %}
+                            <a href=" {% url 'beet_like' beet.id %} ">
+                                <i class="fa fa-heart-o" style="color:red"></i>
+                            </a>
+                        {% endif %}
+                                </p>
+
+                    </div>
+                        {% if request.user.username == profile.user.username %}
+                        <a href=" {% url 'delete_beet' beet.id %} ">
+                                <i class="fas fa-trash-alt" style="color:grey"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br/><br/><br/><br/><br/>
+{% include 'cryptoApp/footer.html' %}
+
+{% endif %}
+{% endblock %}
+
