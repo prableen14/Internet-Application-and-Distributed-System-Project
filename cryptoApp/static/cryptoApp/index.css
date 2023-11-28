@@ -49,6 +49,16 @@ body {
 .custom_modal div {
     transform: scale(1.5);
 }
+
+.red_row {
+    color: red !important;
+    font-weight: bold;
+}
+
+.green_row {
+    color: green !important;
+    font-weight: bold;
+}
 /*.modal_card {*/
 /*    display: none; !* Hidden by default *!*/
 /*    position: fixed; !* Stay in place *!*/

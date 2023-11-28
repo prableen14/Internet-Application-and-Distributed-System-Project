@@ -68,6 +68,8 @@ def logout_view(request):
 
 def index(request):
     coins = Coin.objects.all()
+    for coin in coins:
+        coin.market_cap = format_money(coin.market_cap)
     highlight = get_hightlight_details()
     return render(request, 'cryptoApp/index.html', {'coins': coins, 'highlight': highlight})
 
@@ -185,6 +187,7 @@ def wallet_view(request, coin_id=None):
     except Coin.DoesNotExist:
         print(f"Order with id {coin_id} not found.")
         return render(request, 'cryptoApp/payment.html', {'form': None, 'order': None})
+
 
 
 def success_view(request):
