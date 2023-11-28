@@ -1,12 +1,15 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile, Article
-import requests
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, Article,  Beet, Profile
+# import requests
 from django.utils import timezone
 from django.contrib import messages
-
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
 
 def home(request):
     return render(request, 'cryptoApp/home.html')
@@ -131,9 +134,6 @@ def get_hightlight_details():
     return result
 
 
-def socials_home(request):
-    return render(request, 'cryptoApp/socials_home.html', {})
-
 
 @login_required
 def wallet_view(request, coin_id=None):
@@ -225,10 +225,118 @@ def sell_transaction(request, transaction_id):
     return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})
 
 
-def socials_profile_list(request):
+
+def s_home(request):
     if request.user.is_authenticated:
-        profiles = SocialsProfile.objects.exclude(user=request.user)
-        return render(request, 'cryptoApp/socials_profile_list.html', {"profiles": profiles})
+        beets = Beet.objects.all().order_by("-created_at")
+        form = BeetForm(request.POST or None)
+        if request.method == "POST":
+            if form.is_valid():
+                beet = form.save(commit=False)
+                beet.user = request.user  # saving the beets based on who has logged in
+                beet.save()
+                messages.success(request, "your Beet has been posted...")
+                return redirect('s_home')
+
+        beets = Beet.objects.all().order_by("-created_at")
+        return render(request, 'cryptoApp/s_home.html',
+                      {"beets": beets, "form": form})  # the form shows up only if user has logged in
     else:
-        messages.success(request, ("You must be logged in to view this page ..."))
-        return redirect(request, 'cryptoApp/index.html')
+        beets = Beet.objects.all().order_by("-created_at")
+        return render(request, 'cryptoApp/s_home.html', {"beets": beets})
+
+
+def profile_list(request):
+    if request.user.is_authenticated:
+        profiles = Profile.objects.exclude(user=request.user)
+        return render(request, 'cryptoApp/profile_list.html', {"profiles": profiles})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+def profile(request, pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user_id=pk)
+        beets = Beet.objects.filter(user_id=pk).order_by("-created_at")
+
+        # post form logic
+        if request.method == 'POST':
+            # getting the current user
+            current_user_profile = request.user.profile
+            # get data from the form (follow and unfollow button)
+            action = request.POST['follow']
+            if action == "unfollow":
+                current_user_profile.follows.remove(profile)
+            elif action == "follow":
+                current_user_profile.follows.add(profile)
+            # save profile
+            current_user_profile.save()
+
+        return render(request, "cryptoApp/profile.html", {"profile": profile, "beets": beets})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+def update_user(request):
+    if request.user.is_authenticated:
+        current_user = CustomUser.objects.get(id=request.user.id)  # this fetches user
+        profile_user = Profile.objects.get(user__id=request.user.id)  # this fetches the profile
+        user_form = SignUpForm(request.POST or None, request.FILES or None, instance=current_user)
+        profile_form = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            login(request, current_user)
+            messages.success(request, "Profile updated successfully")
+            return redirect('s_home')
+        return render(request, "cryptoApp/update_user.html", {'user_form': user_form, 'profile_form': profile_form})
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+def beet_like(request, pk):
+    if request.user.is_authenticated:
+        beet = get_object_or_404(Beet, id=pk)
+        if beet.likes.filter(id=request.user.id):
+            beet.likes.remove(request.user)
+        else:
+            beet.likes.add(request.user)
+        return redirect(request.META.get("HTTP_REFERER"))
+
+    else:
+        messages.success(request, "Please login to view this page")
+        return redirect('home')
+
+
+def delete_beet(request, pk):
+    if request.user.is_authenticated:
+        beet = get_object_or_404(Beet, id=pk)
+        if request.user.username == beet.user.username:
+            beet.delete()
+
+            messages.success(request, ("The Beet Has Been Deleted!"))
+            return redirect(request.META.get("HTTP_REFERER"))
+        else:
+            messages.success(request, ("You Don't Own That BEET!!"))
+            return redirect('home')
+
+    else:
+        messages.success(request, ("Please Log In To Continue..."))
+        return redirect(request.META.get("HTTP_REFERER"))
+
+
+def search(request):
+    if request.method == "POST":
+        # Grab the form field input
+        search = request.POST['search']
+        # Search the database
+        searched = Beet.objects.filter(body__contains=search)
+
+        return render(request, 'cryptoApp/search.html', {'search': search, 'searched': searched})
+    else:
+        return render(request, 'cryptoApp/search.html', {})
+
+

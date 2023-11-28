@@ -1,0 +1,42 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+
+{% block content %}
+<div class="col-md-6 offset-md-3 text-center">
+    <h1>Update User</h1>
+    <br/>
+
+<!--    enctype will allow images along with the other details , its for files -->
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <br/>
+        {{ profile_form.as_p }}
+        <br/>
+        <button type="submit" class="btn btn-secondary">
+            Update
+        </button><br/><br/><br/><br/><br/>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'cryptoApp/footer.html' %}
+{% endblock %}
+{% endblock %}
