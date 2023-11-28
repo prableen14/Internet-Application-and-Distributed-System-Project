@@ -1,0 +1,1838 @@
+[
+  {
+    "LogEntry": [
+      {
+        "id": 58,
+        "action_time": "2023-11-28 22:09:00",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "6",
+        "object_repr": "leafia (2023/11/28 22:09): Ethereum is a company, not a cryptocurrency...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 57,
+        "action_time": "2023-11-28 22:08:13",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "5",
+        "object_repr": "smith (2023/11/28 22:08): Ethereum is the internet\u2019s banking system...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 56,
+        "action_time": "2023-11-28 22:07:50",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "4",
+        "object_repr": "diana (2023/11/28 22:07): Has anyone invented a mass blocker for accounts that mention cryptocurrency in their bio yet...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 55,
+        "action_time": "2023-11-28 22:07:35",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "3",
+        "object_repr": "diana (2023/11/28 22:07): 0.01% of Crypto Accounts Control 27% of Bitcoin According to a New Report  Thoughts?\ud83e\udd14...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 54,
+        "action_time": "2023-11-28 22:07:20",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "2",
+        "object_repr": "smith (2023/11/28 22:07): A lot of people get into crypto with a goal to never work again, but instead of 38 hrs they now work 80hrs haha...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 53,
+        "action_time": "2023-11-28 22:07:00",
+        "user_id": 21,
+        "content_type_id": 13,
+        "object_id": "1",
+        "object_repr": "aishwarya (2023/11/28 22:07): Things move quickly in Web 3.   It can be hard to keep up.  Follow these accounts to stay up to speed on Crypto, Web 3, and NFTs:...",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 52,
+        "action_time": "2023-11-28 22:05:07",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "1",
+        "object_repr": "leafia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 51,
+        "action_time": "2023-11-28 22:05:01",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "2",
+        "object_repr": "duy",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 50,
+        "action_time": "2023-11-28 22:04:53",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "3",
+        "object_repr": "sarah",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 49,
+        "action_time": "2023-11-28 22:04:46",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "4",
+        "object_repr": "newone",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 48,
+        "action_time": "2023-11-28 22:04:40",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "5",
+        "object_repr": "prab",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 47,
+        "action_time": "2023-11-28 22:04:31",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "6",
+        "object_repr": "testuser",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 46,
+        "action_time": "2023-11-28 22:04:25",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "7",
+        "object_repr": "test123",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 45,
+        "action_time": "2023-11-28 22:04:18",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "8",
+        "object_repr": "sarahvo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 44,
+        "action_time": "2023-11-28 22:04:11",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "9",
+        "object_repr": "adele",
+        "action_flag": 2,
+        "change_message": "[]"
+      },
+      {
+        "id": 43,
+        "action_time": "2023-11-28 22:04:08",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "10",
+        "object_repr": "aishwarya",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 42,
+        "action_time": "2023-11-28 22:04:01",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "11",
+        "object_repr": "diana",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 41,
+        "action_time": "2023-11-28 22:03:46",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "12",
+        "object_repr": "james",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 40,
+        "action_time": "2023-11-28 22:03:41",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "13",
+        "object_repr": "smith",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\"]}}]"
+      },
+      {
+        "id": 39,
+        "action_time": "2023-11-28 22:03:37",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "9",
+        "object_repr": "adele",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Follows\", \"Profile image\"]}}]"
+      },
+      {
+        "id": 38,
+        "action_time": "2023-11-28 22:03:29",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "10",
+        "object_repr": "aishwarya",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile image\"]}}]"
+      },
+      {
+        "id": 37,
+        "action_time": "2023-11-28 22:03:23",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "11",
+        "object_repr": "diana",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile image\"]}}]"
+      },
+      {
+        "id": 36,
+        "action_time": "2023-11-28 22:03:17",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "12",
+        "object_repr": "james",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Profile image\"]}}]"
+      },
+      {
+        "id": 35,
+        "action_time": "2023-11-28 21:53:34",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "8",
+        "object_repr": "sarahvo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 34,
+        "action_time": "2023-11-28 21:53:28",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "7",
+        "object_repr": "test123",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 33,
+        "action_time": "2023-11-28 21:53:16",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "6",
+        "object_repr": "testuser",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 32,
+        "action_time": "2023-11-28 21:53:01",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "5",
+        "object_repr": "prab",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 31,
+        "action_time": "2023-11-28 21:52:54",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "4",
+        "object_repr": "newone",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 30,
+        "action_time": "2023-11-28 21:52:51",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "3",
+        "object_repr": "sarah",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 29,
+        "action_time": "2023-11-28 21:52:43",
+        "user_id": 21,
+        "content_type_id": 14,
+        "object_id": "2",
+        "object_repr": "duy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 28,
+        "action_time": "2023-11-27 23:33:41",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "3",
+        "object_repr": "Ripple",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 27,
+        "action_time": "2023-11-27 23:33:23",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "4",
+        "object_repr": "Litecoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 26,
+        "action_time": "2023-11-27 23:33:09",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "5",
+        "object_repr": "Cardano",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 25,
+        "action_time": "2023-11-27 23:32:55",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "6",
+        "object_repr": "Polkadot",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 24,
+        "action_time": "2023-11-27 23:32:36",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "7",
+        "object_repr": "Chainlink",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 23,
+        "action_time": "2023-11-27 22:32:05",
+        "user_id": 19,
+        "content_type_id": 7,
+        "object_id": "19",
+        "object_repr": "sarahvo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Id or photo\"]}}]"
+      },
+      {
+        "id": 22,
+        "action_time": "2023-11-22 05:13:23",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "18",
+        "object_repr": "testfianl",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 21,
+        "action_time": "2023-11-22 04:53:54",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "17",
+        "object_repr": "Prab",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 20,
+        "action_time": "2023-11-22 04:41:56",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "15",
+        "object_repr": "abcde",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 19,
+        "action_time": "2023-11-22 04:41:49",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "16",
+        "object_repr": "aws",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 18,
+        "action_time": "2023-11-22 03:37:32",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "13",
+        "object_repr": "testfinal",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 17,
+        "action_time": "2023-11-22 03:37:23",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "14",
+        "object_repr": "testfinal23",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 16,
+        "action_time": "2023-11-22 03:32:47",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "11",
+        "object_repr": "abcd",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 15,
+        "action_time": "2023-11-22 03:32:40",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "12",
+        "object_repr": "yyu",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 14,
+        "action_time": "2023-11-22 03:24:53",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "10",
+        "object_repr": "fortest",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 13,
+        "action_time": "2023-11-21 04:55:54",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "6",
+        "object_repr": "prab",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"
+      },
+      {
+        "id": 12,
+        "action_time": "2023-11-21 04:44:29",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "9",
+        "object_repr": "Prabs2",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 11,
+        "action_time": "2023-11-21 04:30:30",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "6",
+        "object_repr": "prab",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Id or photo\"]}}]"
+      },
+      {
+        "id": 10,
+        "action_time": "2023-11-19 04:40:55",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "4",
+        "object_repr": "prableenkaur",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 9,
+        "action_time": "2023-11-19 04:40:44",
+        "user_id": 6,
+        "content_type_id": 7,
+        "object_id": "5",
+        "object_repr": "test123",
+        "action_flag": 3,
+        "change_message": ""
+      },
+      {
+        "id": 8,
+        "action_time": "2023-11-18 02:52:29",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "2",
+        "object_repr": "Etherium",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      },
+      {
+        "id": 7,
+        "action_time": "2023-11-18 02:51:21",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 6,
+        "action_time": "2023-11-18 02:49:07",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[]"
+      },
+      {
+        "id": 5,
+        "action_time": "2023-11-18 02:48:49",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 4,
+        "action_time": "2023-11-18 02:48:34",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 3,
+        "action_time": "2023-11-18 02:45:43",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 2,
+        "action_time": "2023-11-18 02:43:51",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Icon url\"]}}]"
+      },
+      {
+        "id": 1,
+        "action_time": "2023-11-18 02:29:25",
+        "user_id": 1,
+        "content_type_id": 6,
+        "object_id": "1",
+        "object_repr": "Bitcoin",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+      }
+    ]
+  },
+  {
+    "Permission": [
+      {
+        "id": 1,
+        "name": "Can add log entry",
+        "content_type_id": 1,
+        "codename": "add_logentry"
+      },
+      {
+        "id": 2,
+        "name": "Can change log entry",
+        "content_type_id": 1,
+        "codename": "change_logentry"
+      },
+      {
+        "id": 3,
+        "name": "Can delete log entry",
+        "content_type_id": 1,
+        "codename": "delete_logentry"
+      },
+      {
+        "id": 4,
+        "name": "Can view log entry",
+        "content_type_id": 1,
+        "codename": "view_logentry"
+      },
+      {
+        "id": 9,
+        "name": "Can add group",
+        "content_type_id": 3,
+        "codename": "add_group"
+      },
+      {
+        "id": 10,
+        "name": "Can change group",
+        "content_type_id": 3,
+        "codename": "change_group"
+      },
+      {
+        "id": 11,
+        "name": "Can delete group",
+        "content_type_id": 3,
+        "codename": "delete_group"
+      },
+      {
+        "id": 12,
+        "name": "Can view group",
+        "content_type_id": 3,
+        "codename": "view_group"
+      },
+      {
+        "id": 5,
+        "name": "Can add permission",
+        "content_type_id": 2,
+        "codename": "add_permission"
+      },
+      {
+        "id": 6,
+        "name": "Can change permission",
+        "content_type_id": 2,
+        "codename": "change_permission"
+      },
+      {
+        "id": 7,
+        "name": "Can delete permission",
+        "content_type_id": 2,
+        "codename": "delete_permission"
+      },
+      {
+        "id": 8,
+        "name": "Can view permission",
+        "content_type_id": 2,
+        "codename": "view_permission"
+      },
+      {
+        "id": 13,
+        "name": "Can add content type",
+        "content_type_id": 4,
+        "codename": "add_contenttype"
+      },
+      {
+        "id": 14,
+        "name": "Can change content type",
+        "content_type_id": 4,
+        "codename": "change_contenttype"
+      },
+      {
+        "id": 15,
+        "name": "Can delete content type",
+        "content_type_id": 4,
+        "codename": "delete_contenttype"
+      },
+      {
+        "id": 16,
+        "name": "Can view content type",
+        "content_type_id": 4,
+        "codename": "view_contenttype"
+      },
+      {
+        "id": 41,
+        "name": "Can add article",
+        "content_type_id": 11,
+        "codename": "add_article"
+      },
+      {
+        "id": 42,
+        "name": "Can change article",
+        "content_type_id": 11,
+        "codename": "change_article"
+      },
+      {
+        "id": 43,
+        "name": "Can delete article",
+        "content_type_id": 11,
+        "codename": "delete_article"
+      },
+      {
+        "id": 44,
+        "name": "Can view article",
+        "content_type_id": 11,
+        "codename": "view_article"
+      },
+      {
+        "id": 49,
+        "name": "Can add beet",
+        "content_type_id": 13,
+        "codename": "add_beet"
+      },
+      {
+        "id": 50,
+        "name": "Can change beet",
+        "content_type_id": 13,
+        "codename": "change_beet"
+      },
+      {
+        "id": 51,
+        "name": "Can delete beet",
+        "content_type_id": 13,
+        "codename": "delete_beet"
+      },
+      {
+        "id": 52,
+        "name": "Can view beet",
+        "content_type_id": 13,
+        "codename": "view_beet"
+      },
+      {
+        "id": 21,
+        "name": "Can add coin",
+        "content_type_id": 6,
+        "codename": "add_coin"
+      },
+      {
+        "id": 22,
+        "name": "Can change coin",
+        "content_type_id": 6,
+        "codename": "change_coin"
+      },
+      {
+        "id": 23,
+        "name": "Can delete coin",
+        "content_type_id": 6,
+        "codename": "delete_coin"
+      },
+      {
+        "id": 24,
+        "name": "Can view coin",
+        "content_type_id": 6,
+        "codename": "view_coin"
+      },
+      {
+        "id": 37,
+        "name": "Can add currency",
+        "content_type_id": 10,
+        "codename": "add_currency"
+      },
+      {
+        "id": 38,
+        "name": "Can change currency",
+        "content_type_id": 10,
+        "codename": "change_currency"
+      },
+      {
+        "id": 39,
+        "name": "Can delete currency",
+        "content_type_id": 10,
+        "codename": "delete_currency"
+      },
+      {
+        "id": 40,
+        "name": "Can view currency",
+        "content_type_id": 10,
+        "codename": "view_currency"
+      },
+      {
+        "id": 33,
+        "name": "Can add currency converter",
+        "content_type_id": 9,
+        "codename": "add_currencyconverter"
+      },
+      {
+        "id": 34,
+        "name": "Can change currency converter",
+        "content_type_id": 9,
+        "codename": "change_currencyconverter"
+      },
+      {
+        "id": 35,
+        "name": "Can delete currency converter",
+        "content_type_id": 9,
+        "codename": "delete_currencyconverter"
+      },
+      {
+        "id": 36,
+        "name": "Can view currency converter",
+        "content_type_id": 9,
+        "codename": "view_currencyconverter"
+      },
+      {
+        "id": 25,
+        "name": "Can add user",
+        "content_type_id": 7,
+        "codename": "add_customuser"
+      },
+      {
+        "id": 26,
+        "name": "Can change user",
+        "content_type_id": 7,
+        "codename": "change_customuser"
+      },
+      {
+        "id": 27,
+        "name": "Can delete user",
+        "content_type_id": 7,
+        "codename": "delete_customuser"
+      },
+      {
+        "id": 28,
+        "name": "Can view user",
+        "content_type_id": 7,
+        "codename": "view_customuser"
+      },
+      {
+        "id": 53,
+        "name": "Can add profile",
+        "content_type_id": 14,
+        "codename": "add_profile"
+      },
+      {
+        "id": 54,
+        "name": "Can change profile",
+        "content_type_id": 14,
+        "codename": "change_profile"
+      },
+      {
+        "id": 55,
+        "name": "Can delete profile",
+        "content_type_id": 14,
+        "codename": "delete_profile"
+      },
+      {
+        "id": 56,
+        "name": "Can view profile",
+        "content_type_id": 14,
+        "codename": "view_profile"
+      },
+      {
+        "id": 29,
+        "name": "Can add socials profile",
+        "content_type_id": 8,
+        "codename": "add_socialsprofile"
+      },
+      {
+        "id": 30,
+        "name": "Can change socials profile",
+        "content_type_id": 8,
+        "codename": "change_socialsprofile"
+      },
+      {
+        "id": 31,
+        "name": "Can delete socials profile",
+        "content_type_id": 8,
+        "codename": "delete_socialsprofile"
+      },
+      {
+        "id": 32,
+        "name": "Can view socials profile",
+        "content_type_id": 8,
+        "codename": "view_socialsprofile"
+      },
+      {
+        "id": 45,
+        "name": "Can add transaction",
+        "content_type_id": 12,
+        "codename": "add_transaction"
+      },
+      {
+        "id": 46,
+        "name": "Can change transaction",
+        "content_type_id": 12,
+        "codename": "change_transaction"
+      },
+      {
+        "id": 47,
+        "name": "Can delete transaction",
+        "content_type_id": 12,
+        "codename": "delete_transaction"
+      },
+      {
+        "id": 48,
+        "name": "Can view transaction",
+        "content_type_id": 12,
+        "codename": "view_transaction"
+      },
+      {
+        "id": 17,
+        "name": "Can add session",
+        "content_type_id": 5,
+        "codename": "add_session"
+      },
+      {
+        "id": 18,
+        "name": "Can change session",
+        "content_type_id": 5,
+        "codename": "change_session"
+      },
+      {
+        "id": 19,
+        "name": "Can delete session",
+        "content_type_id": 5,
+        "codename": "delete_session"
+      },
+      {
+        "id": 20,
+        "name": "Can view session",
+        "content_type_id": 5,
+        "codename": "view_session"
+      }
+    ]
+  },
+  {
+    "Group": []
+  },
+  {
+    "ContentType": [
+      {
+        "id": 1,
+        "app_label": "admin",
+        "model": "logentry"
+      },
+      {
+        "id": 2,
+        "app_label": "auth",
+        "model": "permission"
+      },
+      {
+        "id": 3,
+        "app_label": "auth",
+        "model": "group"
+      },
+      {
+        "id": 4,
+        "app_label": "contenttypes",
+        "model": "contenttype"
+      },
+      {
+        "id": 5,
+        "app_label": "sessions",
+        "model": "session"
+      },
+      {
+        "id": 6,
+        "app_label": "cryptoApp",
+        "model": "coin"
+      },
+      {
+        "id": 7,
+        "app_label": "cryptoApp",
+        "model": "customuser"
+      },
+      {
+        "id": 8,
+        "app_label": "cryptoApp",
+        "model": "socialsprofile"
+      },
+      {
+        "id": 9,
+        "app_label": "cryptoApp",
+        "model": "currencyconverter"
+      },
+      {
+        "id": 10,
+        "app_label": "cryptoApp",
+        "model": "currency"
+      },
+      {
+        "id": 11,
+        "app_label": "cryptoApp",
+        "model": "article"
+      },
+      {
+        "id": 12,
+        "app_label": "cryptoApp",
+        "model": "transaction"
+      },
+      {
+        "id": 13,
+        "app_label": "cryptoApp",
+        "model": "beet"
+      },
+      {
+        "id": 14,
+        "app_label": "cryptoApp",
+        "model": "profile"
+      }
+    ]
+  },
+  {
+    "Session": [
+      {
+        "session_key": "n2ioytnhvkh22oun9ql20vxq8o99pvr9",
+        "session_data": ".eJxVjDsOwjAQBe_iGln-LjYlfc5grT-LA8iW4qRC3B0ipYD2zcx7sYDbWsM2yhLmzC5MstPvFjE9SttBvmO7dZ56W5c58l3hBx186rk8r4f7d1Bx1G9NopDVXiiSQgOSUkobcGR9UgbwXEBoXxBMApIgMYPwFMFFQcppadn7A8eJNxE:1r4B4l:p4hR29v4DrHCFH7ix34-R6oROgqN2th8KjI-BkcL5Bo",
+        "expire_date": "2023-12-02 02:28:51"
+      },
+      {
+        "session_key": "fheevkq84pau1hmz91g4ss99jgc088qn",
+        "session_data": ".eJxVjEEOwiAQRe_C2pApQ5ni0r1naAYGpGpoUtqV8e7apAvd_vfef6mRt7WMW0vLOIk6K1Sn3y1wfKS6A7lzvc06znVdpqB3RR-06ess6Xk53L-Dwq1864AQg-8dIKQIHWQfh578YNA6b0mMUMZkgW2k0PWZXTYIgnkgYupEvT_GXjdF:1r4UW9:A65z6v0u6whKhCB9OKlL8dbZZem22nQqoH52JNj1CSc",
+        "expire_date": "2023-12-02 23:14:25"
+      },
+      {
+        "session_key": "fqewje2se7mx3bwc91kf2u9ekfgfk5ct",
+        "session_data": ".eJxVjEEOwiAQRe_C2pApQ5ni0r1naAYGpGpoUtqV8e7apAvd_vfef6mRt7WMW0vLOIk6K1Sn3y1wfKS6A7lzvc06znVdpqB3RR-06ess6Xk53L-Dwq1864AQg-8dIKQIHWQfh578YNA6b0mMUMZkgW2k0PWZXTYIgnkgYupEvT_GXjdF:1r7jjN:oco3IYSpCylgVhhNCHuO0E50lvLMDgPYTa2My0X-U04",
+        "expire_date": "2023-12-11 22:05:29"
+      },
+      {
+        "session_key": "r3eopkwwnvrh2vwlquf709z65fgw4ojb",
+        "session_data": ".eJxVjDsOwjAQBe_iGlle1o69lPQ5Q7TrDwkgW8qnQtwdIqWA9s3Me6mBt3UctiXPw5TURQGp0-8oHB-57iTdud6ajq2u8yR6V_RBF923lJ_Xw_07GHkZ9xoDMWFHxcUU4FyAjBcTHZVoGBPYYFAsdgKEGaSAs947spm_3Il6fwD5Kzep:1r7k3L:VVLtnpUc378m4T4SSlyyuQVolrU1mS6tndwb-nKyFR8",
+        "expire_date": "2023-12-11 22:26:07"
+      },
+      {
+        "session_key": "dwjsaa6sgu3zevktqiug0jwg586qzafs",
+        "session_data": ".eJxVjEEOwiAQAP_C2RBgIaJH776B7LKLVA1NSnsy_l1JetDrzGReKuG21rR1WdLE6qycVYdfSJgf0obhO7bbrPPc1mUiPRK9266vM8vzsrd_g4q9jm800TMA5qOUUmzIFsgbAGvQxuJjgCLeBRRCw0Tg7Zc54RNldsDq_QEBYzhF:1r85yr:D3Ty_Ddcv0eVoxACwdfvhDRoQnf8eSE63nUgKopJeF0",
+        "expire_date": "2023-12-12 21:50:57"
+      },
+      {
+        "session_key": "jq4lg4gytlez0xvkbsdv1dx9n4t91ayu",
+        "session_data": ".eJxVjEEOwiAQAP_C2RBgIaJH776B7LKLVA1NSnsy_l1JetDrzGReKuG21rR1WdLE6qycVYdfSJgf0obhO7bbrPPc1mUiPRK9266vM8vzsrd_g4q9jm800TMA5qOUUmzIFsgbAGvQxuJjgCLeBRRCw0Tg7Zc54RNldsDq_QEBYzhF:1r86AF:cxgAcNYJByykrNBLZtiZAs5FvOKInXlugcMdt_Xxtac",
+        "expire_date": "2023-12-12 22:02:43"
+      },
+      {
+        "session_key": "vjjanlfpngpuq5phr4x9dg2f9vwq1s5g",
+        "session_data": ".eJxVjEEOwiAQAP_C2RBgIaJH776B7LKLVA1NSnsy_l1JetDrzGReKuG21rR1WdLE6qycVYdfSJgf0obhO7bbrPPc1mUiPRK9266vM8vzsrd_g4q9jm800TMA5qOUUmzIFsgbAGvQxuJjgCLeBRRCw0Tg7Zc54RNldsDq_QEBYzhF:1r86AY:hqL6BmCTYdrr3HaYQz0eBOGpVzP8WL6nVpLdccCv3os",
+        "expire_date": "2023-12-12 22:03:02"
+      },
+      {
+        "session_key": "9jabfdzrkuia64xby1s4std7x3xr2eh7",
+        "session_data": ".eJxVjMsOgjAQRf-la9NMp9iHS_d8A5npDIIaSCisjP-uJCx0e88592U62tah26ou3SjmYjCY0-_IVB467UTuNN1mW-ZpXUa2u2IPWm07iz6vh_t3MFAdvjURkAbM3mXXAII4JR97VEbvxCcNkrk0ESRSAAguxchnhIDQpxTZvD_2wTcx:1r86Jo:sjeMo74R2Q2ApSAihnUu2IQosmWgpFkSN1QH8nvy9-Y",
+        "expire_date": "2023-12-12 22:12:36"
+      }
+    ]
+  },
+  {
+    "CustomUser": [
+      {
+        "id": 1,
+        "password": "pbkdf2_sha256$600000$ueObpOMvCJwddh4qKFWBKm$0i5bZ4zJ+jUQXlUq8rz0ht9RwkraWgb271l+nbdONdo=",
+        "last_login": "2023-11-27 23:32:15",
+        "is_superuser": true,
+        "username": "duy",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-18 02:28:40",
+        "email": "email@email.com",
+        "id_or_photo": "",
+        "createdDate": "2023-11-18 23:02:31",
+        "balance": 500.0
+      },
+      {
+        "id": 2,
+        "password": "pbkdf2_sha256$600000$QqJ69BgWpGU4nDw6EXv2hs$oADh+rVAvAiPj7Be92TEPkP23TpX+GcB2Jbi9zCmrAA=",
+        "last_login": "2023-11-18 20:16:57",
+        "is_superuser": false,
+        "username": "sarah",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-18 20:16:54",
+        "email": "sarah@gmail.com",
+        "id_or_photo": "id_photos/3d068af010ecf2aefdc728afde29967c.gif",
+        "createdDate": "2023-11-18 23:02:31",
+        "balance": 500.0
+      },
+      {
+        "id": 3,
+        "password": "pbkdf2_sha256$600000$lk2MmTGY2fnTpT392foAe2$ZlI+pbQuz/7o+LIaLWqiBTG6doyqQjIY1j7D+SarQyk=",
+        "last_login": "2023-11-27 22:05:29",
+        "is_superuser": false,
+        "username": "newone",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-18 23:14:23",
+        "email": "newUser@gmail.com",
+        "id_or_photo": "id_photos/image_2023-08-26_16-54-52.png",
+        "createdDate": "2023-11-18 23:14:23",
+        "balance": 500.0
+      },
+      {
+        "id": 6,
+        "password": "pbkdf2_sha256$260000$ZByxH3VT3Z01UARUnsHZmZ$NyO9t2bFHuuaxWKgYqdQ7W1iyL56igjos0jguvAVTWc=",
+        "last_login": "2023-11-22 05:13:14",
+        "is_superuser": true,
+        "username": "prab",
+        "first_name": "Prableen Kaur",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-19 04:38:55",
+        "email": "prab@gmail.com",
+        "id_or_photo": "id_photos/avtPrab.jpg",
+        "createdDate": "2023-11-19 04:38:55",
+        "balance": 500.0
+      },
+      {
+        "id": 7,
+        "password": "pbkdf2_sha256$260000$Vq3I70usRjyY3K40dgFxb6$zxLopILtsNxVghrWCOjG7Tlf+xHB1n/PgVBFAGqGJ3k=",
+        "last_login": "2023-11-19 04:51:59",
+        "is_superuser": false,
+        "username": "testuser",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-19 04:50:59",
+        "email": "justin2@gmail.com",
+        "id_or_photo": "",
+        "createdDate": "2023-11-19 04:50:59",
+        "balance": 500.0
+      },
+      {
+        "id": 8,
+        "password": "pbkdf2_sha256$260000$oQ8pZLGkVjT1hiZl25tKEe$0je7J9W+U2Ycx8cTYqSWpyWQfUr5x2QOGf94r+EQTtI=",
+        "last_login": "2023-11-19 05:36:47",
+        "is_superuser": false,
+        "username": "test123",
+        "first_name": "Prableen Kaur Sachdeva",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-19 05:35:09",
+        "email": "kprabs063@gmail.com",
+        "id_or_photo": "id_photos/Prab.PNG",
+        "createdDate": "2023-11-19 05:35:09",
+        "balance": 500.0
+      },
+      {
+        "id": 19,
+        "password": "pbkdf2_sha256$600000$18qCOVeXjpx32WM6owO2mM$q7Bc+GwrV8oDxCMsPM64kdKRVQdoCT1HZTwxILTuKeU=",
+        "last_login": "2023-11-27 22:26:07",
+        "is_superuser": true,
+        "username": "sarahvo",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-27 22:25:49",
+        "email": "sarah@mail.com",
+        "id_or_photo": "id_photos/github.png",
+        "createdDate": "2023-11-27 22:25:50",
+        "balance": 500.0
+      },
+      {
+        "id": 20,
+        "password": "pbkdf2_sha256$600000$vXF8Fz03qsR5fWdRbQuoSD$4j2O5swzT+uLvnB9pKF5A1bUtTNQ7VAljfSAqfoFm7E=",
+        "last_login": "2023-11-27 23:31:57",
+        "is_superuser": false,
+        "username": "tester",
+        "first_name": "tester",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-27 23:31:53",
+        "email": "tester@email.com",
+        "id_or_photo": "id_photos/dada_design-cMGAsYP7fOc-unsplash.jpg",
+        "createdDate": "2023-11-27 23:31:53",
+        "balance": 500.0
+      },
+      {
+        "id": 21,
+        "password": "pbkdf2_sha256$600000$b2GkAPJhfACUYfTxgNDrBA$yxzDtR/LCGTpHorsFcAmnwC9U2NPrxEeH8TyFGABu54=",
+        "last_login": "2023-11-28 22:03:02",
+        "is_superuser": true,
+        "username": "leafia",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-28 21:50:47",
+        "email": "leafia@gmail.com",
+        "id_or_photo": "",
+        "createdDate": "2023-11-28 21:50:48",
+        "balance": 500.0
+      },
+      {
+        "id": 22,
+        "password": "pbkdf2_sha256$600000$Upm3W42UNCa4xeeLtdFv9L$Coyie/qtkcLC+5d1D/m17H+suPr7i98oe2rTmJnk21E=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "adele",
+        "first_name": "adele",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-28 21:59:07",
+        "email": "adele@gmail.com",
+        "id_or_photo": "id_photos/adele_h2wmRuG.jpeg",
+        "createdDate": "2023-11-28 21:59:07",
+        "balance": 500.0
+      },
+      {
+        "id": 23,
+        "password": "pbkdf2_sha256$600000$9WEQnyRC95wQvdAkPR3py3$s9V2ZrKOhILGxbYbH3ojhdGWrq0Y5t+RDASwQAXjxkw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "aishwarya",
+        "first_name": "aishwarya",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-28 21:59:29",
+        "email": "aishwarya@gmail.com",
+        "id_or_photo": "id_photos/diana_tjUgaPH.jpg",
+        "createdDate": "2023-11-28 21:59:30",
+        "balance": 500.0
+      },
+      {
+        "id": 24,
+        "password": "pbkdf2_sha256$600000$j8b9XjL91BcqNe2bGO4nKQ$EfQDvOa8sUnAhrxwmAXWe4oeT3L/StwNtGiBE4/wL5Q=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "diana",
+        "first_name": "diana",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-28 21:59:52",
+        "email": "diana@gmail.com",
+        "id_or_photo": "id_photos/diana_qgSFFb4.jpg",
+        "createdDate": "2023-11-28 21:59:53",
+        "balance": 500.0
+      },
+      {
+        "id": 25,
+        "password": "pbkdf2_sha256$600000$IThIjJzh81Vflqv7n9MYFK$zxjqSl+UjYKC6KeLEbued+tOo/9R+eEa2nGQac5nXZI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "james",
+        "first_name": "james",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-28 22:00:21",
+        "email": "james@gmail.com",
+        "id_or_photo": "id_photos/james_NG7bDIz.jpg",
+        "createdDate": "2023-11-28 22:00:22",
+        "balance": 500.0
+      },
+      {
+        "id": 26,
+        "password": "pbkdf2_sha256$600000$zNtmZGCelDbwzdRW7FtaBZ$6hyFbsSibJLEsi9eVFJWIT9R/ENvgh9xrlqOuySCHFo=",
+        "last_login": "2023-11-28 22:12:36",
+        "is_superuser": false,
+        "username": "smith1",
+        "first_name": "smith",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-28 22:00:47",
+        "email": "smith@gmail.com",
+        "id_or_photo": "id_photos/smith_1EXwos3.jpeg",
+        "createdDate": "2023-11-28 22:00:48",
+        "balance": 500.0
+      }
+    ]
+  },
+  {
+    "Coin": [
+      {
+        "id": 1,
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "price": 38119.0,
+        "percentage_change_1h": 23.0,
+        "percentage_change_24h": 10.0,
+        "percentage_change_7d": 12.0,
+        "market_cap": 2300000.0,
+        "all_time_high": 1000000.0,
+        "graph_link": "",
+        "icon_url": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+        "createdDate": "2023-11-18 22:33:05"
+      },
+      {
+        "id": 2,
+        "name": "Etherium",
+        "symbol": "ETH",
+        "price": 1212.0,
+        "percentage_change_1h": 121.0,
+        "percentage_change_24h": 12.0,
+        "percentage_change_7d": 12.0,
+        "market_cap": 23452.0,
+        "all_time_high": 2340.0,
+        "graph_link": "",
+        "icon_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY2Z3Ds3tRHIPm4TeWSIS8x1eq3BKwDRN_bR54n1Yt&s",
+        "createdDate": "2023-11-18 22:33:05"
+      },
+      {
+        "id": 3,
+        "name": "Ripple",
+        "symbol": "XRP",
+        "price": 1.2,
+        "percentage_change_1h": -0.5,
+        "percentage_change_24h": 2.3,
+        "percentage_change_7d": -1.8,
+        "market_cap": 55000000000.0,
+        "all_time_high": 3.84,
+        "graph_link": "https://example.com/graph/xrp",
+        "icon_url": "https://w7.pngwing.com/pngs/750/581/png-transparent-xrp-symbol-xrp-sign-xrp-logo-xrp-crypto-xrp-coin-xrp-3d-icon-thumbnail.png",
+        "createdDate": "2023-11-18 22:35:23"
+      },
+      {
+        "id": 4,
+        "name": "Litecoin",
+        "symbol": "LTC",
+        "price": 69.66,
+        "percentage_change_1h": 0.8,
+        "percentage_change_24h": -1.5,
+        "percentage_change_7d": 5.2,
+        "market_cap": 9500000000.0,
+        "all_time_high": 375.29,
+        "graph_link": "https://example.com/graph/ltc",
+        "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LTC-400.png/800px-LTC-400.png",
+        "createdDate": "2023-11-18 22:35:23"
+      },
+      {
+        "id": 5,
+        "name": "Cardano",
+        "symbol": "ADA",
+        "price": 2.85,
+        "percentage_change_1h": 1.2,
+        "percentage_change_24h": 3.6,
+        "percentage_change_7d": -0.9,
+        "market_cap": 73000000000.0,
+        "all_time_high": 3.1,
+        "graph_link": "https://example.com/graph/ada",
+        "icon_url": "https://logowik.com/content/uploads/images/cardano-ada2887.jpg",
+        "createdDate": "2023-11-18 22:35:23"
+      },
+      {
+        "id": 6,
+        "name": "Polkadot",
+        "symbol": "DOT",
+        "price": 4.81,
+        "percentage_change_1h": -0.3,
+        "percentage_change_24h": 4.7,
+        "percentage_change_7d": 8.1,
+        "market_cap": 32000000000.0,
+        "all_time_high": 49.69,
+        "graph_link": "https://example.com/graph/dot",
+        "icon_url": "https://user-images.githubusercontent.com/25497083/148661419-419ad5b3-1b9f-480a-b723-3f292616730c.png",
+        "createdDate": "2023-11-18 22:35:23"
+      },
+      {
+        "id": 7,
+        "name": "Chainlink",
+        "symbol": "LINK",
+        "price": 25.4,
+        "percentage_change_1h": 2.1,
+        "percentage_change_24h": -0.8,
+        "percentage_change_7d": 6.5,
+        "market_cap": 10500000000.0,
+        "all_time_high": 36.95,
+        "graph_link": "https://example.com/graph/link",
+        "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Chainlink_Logo.png/220px-Chainlink_Logo.png",
+        "createdDate": "2023-11-18 22:35:23"
+      },
+      {
+        "id": 8,
+        "name": "Dai",
+        "symbol": "DAI",
+        "price": 1.0,
+        "percentage_change_1h": 0.01,
+        "percentage_change_24h": 0.02,
+        "percentage_change_7d": 0.05,
+        "market_cap": 5349263999.0,
+        "all_time_high": 53339263999.0,
+        "graph_link": "https://example.com/graph/link",
+        "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/4943.png",
+        "createdDate": "2023-11-28 19:17:01"
+      }
+    ]
+  },
+  {
+    "Currency": [
+      {
+        "id": 1,
+        "code": "USD",
+        "name": "US Dollar"
+      },
+      {
+        "id": 2,
+        "code": "EUR",
+        "name": "Euro"
+      },
+      {
+        "id": 3,
+        "code": "GBP",
+        "name": "British Pound"
+      },
+      {
+        "id": 4,
+        "code": "AUD",
+        "name": "Australian Dollar"
+      },
+      {
+        "id": 5,
+        "code": "CAD",
+        "name": "Canadian Dollar"
+      },
+      {
+        "id": 6,
+        "code": "VND",
+        "name": "Vietnamese Dong"
+      }
+    ]
+  },
+  {
+    "CurrencyConverter": [
+      {
+        "id": 1,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1832350000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 2,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1831350000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 3,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1.3651131678816173,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 4,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1831350000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 5,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1.3651131678816173,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 6,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 41.254125412541256,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 7,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 60600000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 8,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 60600000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 9,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 41.254125412541256,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 10,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 41.254125412541256,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 11,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 60600000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 12,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 41.254125412541256,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 13,
+        "coin_id": 2,
+        "amount": 10000.0,
+        "currency": "USD",
+        "result": 8.250825082508252,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 14,
+        "coin_id": 4,
+        "amount": 1.0,
+        "currency": "USD",
+        "result": 69.66,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 15,
+        "coin_id": 1,
+        "amount": 2.0,
+        "currency": "USD",
+        "result": 73960.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 16,
+        "coin_id": 1,
+        "amount": 2.0,
+        "currency": "USD",
+        "result": 5.4083288263926445e-05,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 17,
+        "coin_id": 1,
+        "amount": 2.0,
+        "currency": "USD",
+        "result": 5.4083288263926445e-05,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 18,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 0.5408328826392644,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 19,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 739600000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 20,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 739460000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 21,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 739480000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 22,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 739480000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 23,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 0.5409206469410938,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 24,
+        "coin_id": 1,
+        "amount": 20000.0,
+        "currency": "USD",
+        "result": 739480000.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 25,
+        "coin_id": 1,
+        "amount": 1.0,
+        "currency": "USD",
+        "result": 38119.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 26,
+        "coin_id": 1,
+        "amount": 1.0,
+        "currency": "USD",
+        "result": 2.6233636769065297e-05,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 27,
+        "coin_id": 1,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 1.3116818384532647,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 28,
+        "coin_id": 2,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 41.254125412541256,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 29,
+        "coin_id": 6,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 9451.79584120983,
+        "is_coin_to_currency": false
+      },
+      {
+        "id": 30,
+        "coin_id": 6,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 264500.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 31,
+        "coin_id": 6,
+        "amount": 50000.0,
+        "currency": "USD",
+        "result": 264500.0,
+        "is_coin_to_currency": true
+      },
+      {
+        "id": 32,
+        "coin_id": 6,
+        "amount": 50000.0,
+        "currency": "EUR",
+        "result": 240499.99999999997,
+        "is_coin_to_currency": true
+      }
+    ]
+  },
+  {
+    "Article": [
+      {
+        "id": 1,
+        "title": "Solana Competitor Explodes Over 110% in Two Weeks Amid New Investment From USDC Issuer Circle",
+        "content": "A Solana (SOL) competitor is suddenly soaring amid news that stablecoin issuer Circle (USDC) is investing in the blockchain project.\r\n\r\nThe Sei Network (SEI), the new layer-1 blockchain that claims to be a blockchain faster than Solana, reached a high of $0.250 after the Circle announcement, a more than 110% increase from its value of $0.118 on November 10th.\r\n\r\nCircle said they were investing in the SEI network to expand use cases for USDC, its dollar-pegged digital asset.\r\n\r\nSEI has slightly retraced and is trading for $0.239 at time of writing.\r\n\r\nSaid SEI,\r\n\r\n\u201cSEI is designed specifically to address the primary use case of cryptocurrency \u2013 the exchange of digital assets. This blockchain isn\u2019t just fast; it\u2019s the fastest, achieving 390ms time to finality and boasts unparalleled speed.\r\n\r\nThrough integration with SEI, USDC will provide developers and entrepreneurs around the world something they\u2019ve never had before: the ability to build products and commerce on an open platform globally, quickly, and cheaply with instantaneous transaction settlement.\u201d",
+        "author_id": 19,
+        "created_at": "2023-11-27 22:37:29",
+        "updated_at": "2023-11-27 22:37:29"
+      },
+      {
+        "id": 2,
+        "title": "Top Trader Who Nailed 2018 Bitcoin Bottom Outlines BTC Roadmap to $60,000 \u2013 Here\u2019s His Timeline",
+        "content": "A trader who accurately called Bitcoin\u2019s (BTC) 2018 bear market bottom is laying out a price path to $60,000 for the crypto king.\r\n\r\nPseudonymous analyst Bluntz tells his 229,700 followers on the social media X platform that Bitcoin looks really bullish as it is in the midst of a wave three rally.\r\n\r\nBluntz practices the Elliott Wave theory, a technical Analysis method that attempts to predict future price action by following crowd psychology that tends to manifest in waves. According to the theory, a bullish asset goes through a five-wave uptrend with the third wave representing the longest leg up.\r\nSays Bluntz,\r\n\r\n\u201cYeah, I\u2019m running with the extended wave three currently underway. Fairly sure Credible Crypto is as well.\u201d",
+        "author_id": 19,
+        "created_at": "2023-11-27 22:37:49",
+        "updated_at": "2023-11-27 22:37:49"
+      },
+      {
+        "id": 3,
+        "title": "Exploring the Fusion: FXBox.io Introduces GameFi and DeFi in Investment and Trading",
+        "content": "In the ever-evolving landscape of finance and technology, FXBox.io emerges as a trailblazing platform that brings together traditional investment avenues like forex and cutting-edge innovations like GameFi, NFTs, and DeFi.\r\nThis seamless fusion of opportunities provides investors and traders a unique chance to engage in both traditional and avant-garde investment strategies.\r\n\r\nGameFi Enters the Fray:\r\nGameFi, a novel concept that merges gaming and finance, has captured the imagination of investors worldwide. FXBox.io recognizes the potential of GameFi and offers users an opportunity to participate in this emerging trend. By investing in Play-to-Earn (P2E) financial games, users can not only enjoy gaming experiences but also generate profits. The integration of GameFi into the platform opens new doors for investors to diversify their portfolios and explore the exciting world of virtual economies.\r\n\r\nNFTs and DeFi Meet Forex Trading:\r\nThe fusion of non-fungible tokens (NFTs) and decentralized finance (DeFi) with forex trading is a groundbreaking move by FXBox.io. NFTs have revolutionized ownership and provenance in the digital realm, while DeFi has disrupted traditional financial intermediaries. By combining these innovations with forex trading, FXBox.io offers users a chance to enhance their trading experience. Imagine trading forex while simultaneously utilizing NFTs as collateral for DeFi services, creating a dynamic synergy that amplifies the potential for profit.",
+        "author_id": 19,
+        "created_at": "2023-11-27 22:38:11",
+        "updated_at": "2023-11-27 22:38:11"
+      }
+    ]
+  },
+  {
+    "Transaction": []
+  },
+  {
+    "Profile": [
+      {
+        "id": 1,
+        "user_id": 21,
+        "date_modified": "2023-11-28 22:05:07",
+        "profile_image": ""
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "date_modified": "2023-11-28 22:05:01",
+        "profile_image": "images/dog2.jpg"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "date_modified": "2023-11-28 22:04:53",
+        "profile_image": "images/dog1.jpg"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "date_modified": "2023-11-28 22:04:46",
+        "profile_image": ""
+      },
+      {
+        "id": 5,
+        "user_id": 6,
+        "date_modified": "2023-11-28 22:04:40",
+        "profile_image": "images/profile_image.png"
+      },
+      {
+        "id": 6,
+        "user_id": 7,
+        "date_modified": "2023-11-28 22:04:31",
+        "profile_image": "images/cat1_3BtLAYu.jpg"
+      },
+      {
+        "id": 7,
+        "user_id": 8,
+        "date_modified": "2023-11-28 22:04:25",
+        "profile_image": "images/dog2_CjQ3QwN.jpg"
+      },
+      {
+        "id": 8,
+        "user_id": 19,
+        "date_modified": "2023-11-28 22:04:18",
+        "profile_image": "images/dog1_YgNP1c2.jpg"
+      },
+      {
+        "id": 9,
+        "user_id": 22,
+        "date_modified": "2023-11-28 22:04:11",
+        "profile_image": "images/adele_3vXN5JT.jpeg"
+      },
+      {
+        "id": 10,
+        "user_id": 23,
+        "date_modified": "2023-11-28 22:04:08",
+        "profile_image": "images/aishwarya_ZvpPuzy.jpeg"
+      },
+      {
+        "id": 11,
+        "user_id": 24,
+        "date_modified": "2023-11-28 22:04:01",
+        "profile_image": "images/diana_xq4v74M.jpg"
+      },
+      {
+        "id": 12,
+        "user_id": 25,
+        "date_modified": "2023-11-28 22:03:46",
+        "profile_image": "images/james_kcYMmbL.jpg"
+      },
+      {
+        "id": 13,
+        "user_id": 26,
+        "date_modified": "2023-11-28 22:12:49",
+        "profile_image": "images/smith_d1JL3Bp.jpeg"
+      }
+    ]
+  },
+  {
+    "Beet": [
+      {
+        "id": 1,
+        "user_id": 23,
+        "body": "Things move quickly in Web 3.   It can be hard to keep up.  Follow these accounts to stay up to speed on Crypto, Web 3, and NFTs:",
+        "created_at": "2023-11-28 22:07:00"
+      },
+      {
+        "id": 2,
+        "user_id": 26,
+        "body": "A lot of people get into crypto with a goal to never work again, but instead of 38 hrs they now work 80hrs haha",
+        "created_at": "2023-11-28 22:07:20"
+      },
+      {
+        "id": 3,
+        "user_id": 24,
+        "body": "0.01% of Crypto Accounts Control 27% of Bitcoin According to a New Report  Thoughts?\ud83e\udd14",
+        "created_at": "2023-11-28 22:07:35"
+      },
+      {
+        "id": 4,
+        "user_id": 24,
+        "body": "Has anyone invented a mass blocker for accounts that mention cryptocurrency in their bio yet",
+        "created_at": "2023-11-28 22:07:50"
+      },
+      {
+        "id": 5,
+        "user_id": 26,
+        "body": "Ethereum is the internet\u2019s banking system",
+        "created_at": "2023-11-28 22:08:13"
+      },
+      {
+        "id": 6,
+        "user_id": 21,
+        "body": "Ethereum is a company, not a cryptocurrency",
+        "created_at": "2023-11-28 22:09:00"
+      }
+    ]
+  }
+]
