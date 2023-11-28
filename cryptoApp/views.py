@@ -1,8 +1,8 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm
+from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm, CurrencyForm, CoinForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, Article,  Beet, Profile
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, Article,  Beet, Profile, Currency
 import requests
 from django.utils import timezone
 from django.contrib import messages
@@ -132,6 +132,105 @@ def get_hightlight_details():
         'recent_articles': recent_articles
     }
     return result
+
+
+def add_currency(request):
+    if request.method == 'POST':
+        form = CurrencyForm(request.POST)
+        if form.is_valid():
+            code = form.cleaned_data['code']
+            if Currency.objects.filter(code=code).exists():
+                # Currency with the given code already exists
+                form.add_error('code', 'Currency with this code already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Currency added successfully.')
+    else:
+        form = CurrencyForm()
+
+    return render(request, 'cryptoApp/add_currency.html', {'form': form})
+
+
+def add_coin(request):
+    if request.method == 'POST':
+        form = CoinForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            if Coin.objects.filter(name=name).exists():
+                form.add_error('name', 'Coin with this name already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Coin added successfully.')
+    else:
+        form = CoinForm()
+
+    return render(request, 'cryptoApp/add_coin.html', {'form': form})
+
+
+def add_currency(request):
+    if request.method == 'POST':
+        form = CurrencyForm(request.POST)
+        if form.is_valid():
+            code = form.cleaned_data['code']
+            if Currency.objects.filter(code=code).exists():
+                # Currency with the given code already exists
+                form.add_error('code', 'Currency with this code already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Currency added successfully.')
+    else:
+        form = CurrencyForm()
+
+    return render(request, 'cryptoApp/add_currency.html', {'form': form})
+
+
+def add_coin(request):
+    if request.method == 'POST':
+        form = CoinForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            if Coin.objects.filter(name=name).exists():
+                form.add_error('name', 'Coin with this name already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Coin added successfully.')
+    else:
+        form = CoinForm()
+
+    return render(request, 'cryptoApp/add_coin.html', {'form': form})
+
+
+def add_currency(request):
+    if request.method == 'POST':
+        form = CurrencyForm(request.POST)
+        if form.is_valid():
+            code = form.cleaned_data['code']
+            if Currency.objects.filter(code=code).exists():
+                # Currency with the given code already exists
+                form.add_error('code', 'Currency with this code already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Currency added successfully.')
+    else:
+        form = CurrencyForm()
+
+    return render(request, 'cryptoApp/add_currency.html', {'form': form})
+
+
+def add_coin(request):
+    if request.method == 'POST':
+        form = CoinForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            if Coin.objects.filter(name=name).exists():
+                form.add_error('name', 'Coin with this name already exists.')
+            else:
+                form.save()
+                messages.success(request, 'Coin added successfully.')
+    else:
+        form = CoinForm()
+
+    return render(request, 'cryptoApp/add_coin.html', {'form': form})
 
 
 

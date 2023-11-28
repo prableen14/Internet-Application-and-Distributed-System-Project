@@ -19,6 +19,8 @@ class UserAdmin(admin.ModelAdmin):
 admin.site.register(CustomUser)
 admin.site.register(Coin)
 admin.site.register(Transaction)
+admin.site.register(Currency)
+admin.site.register(CurrencyConverter)
 
 # admin.site.unregister(User)
 admin.site.register(User, UserAdmin)

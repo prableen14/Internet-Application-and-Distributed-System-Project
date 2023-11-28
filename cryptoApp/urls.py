@@ -18,6 +18,8 @@ urlpatterns = [
     path('sell_transaction/<int:transaction_id>/', views.sell_transaction, name='sell_transaction'),
     path('success/', views.success_view, name='success_view'),
     path('failure/', views.insufficient_balance_view, name='insufficient_balance_view'),
+    path('submit_exchange/', views.add_currency, name='submit_exchange'),
+    path('submit_crypto/', views.add_coin, name='submit_crypto'),
     path(
       'articles/create/', ArticleCreateView.as_view(),
       name='article_create'
@@ -34,4 +36,5 @@ urlpatterns = [
     path('beet_like/<int:pk>', views.beet_like, name='beet_like' ),
     path('delete_beet/<int:pk>', views.delete_beet, name='delete_beet' ),
     path('search/', views.search, name='search' ),
+
 ]

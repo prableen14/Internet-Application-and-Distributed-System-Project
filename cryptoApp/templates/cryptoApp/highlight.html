@@ -30,8 +30,7 @@
                         <div class="carousel-item-group">
                             <div class="carousel-item-item">{{ forloop.counter }}</div>
                             <div class="carousel-item-img">
-                                {#                            <img src="{{ coin.coin_url }}" alt="{{ coin.name }}"/>#}
-                                <img src="../../static/cryptoApp/assets/only-logo.png" alt="{{ coin.name }}"/>
+                                 <img src="{{ coin.icon_url }}" alt="{{ coin.name }}"/>
                             </div>
                             <div class="carousel-item-name">{{ coin.name }}</div>
                             <div class="carousel-item-price {% if coin.percentage_change_24h > 0 %}green{% else %}red{% endif %}">
@@ -47,8 +46,7 @@
                         <div class="carousel-item-group">
                             <div class="carousel-item-item">{{ forloop.counter }}</div>
                             <div class="carousel-item-img">
-                                {#                            <img src="{{ coin.coin_url }}" alt="{{ coin.name }}"/>#}
-                                <img src="../../static/cryptoApp/assets/only-logo.png" alt="{{ coin.name }}"/>
+                                <img src="{{ coin.icon_url }}" alt="{{ coin.name }}"/>
                             </div>
                             <div class="carousel-item-name">{{ coin.name }}</div>
                             <div class="carousel-item-price">${{ coin.price }}</div>

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import CustomUser, Coin, Currency, Article, Transaction, Beet, Profile
+from .models import CustomUser, Coin, Currency, Article, Beet, Profile
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from datetime import date
 class SignUpForm(UserCreationForm):
@@ -58,6 +58,7 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget = forms.HiddenInput()
         self.fields.pop('password2', None)
 
+
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = CustomUser
@@ -84,6 +85,18 @@ class ConverterForm(forms.Form):
         initial=True,  # Set the initial value to True or False
         widget=forms.HiddenInput(attrs={'class': 'form-toggle-input'}),  # Hidden input to store the state
     )
+
+
+class CurrencyForm(forms.ModelForm):
+    class Meta:
+        model = Currency
+        fields = ['code', 'name']
+
+
+class CoinForm(forms.ModelForm):
+    class Meta:
+        model = Coin
+        fields = ['name', 'symbol', 'price', 'percentage_change_1h', 'percentage_change_24h', 'percentage_change_7d', 'market_cap', 'all_time_high', 'graph_link', 'icon_url']
 
 
 class TransactionForm(forms.Form):
