@@ -27,5 +27,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Profile)
 admin.site.register(Beet)
 
-admin.site.register(Currency)
-admin.site.register(CurrencyConverter)
+
