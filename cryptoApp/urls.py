@@ -27,5 +27,6 @@ urlpatterns = [
     path('update_user/', views.update_user, name='update_user' ),
     path('beet_like/<int:pk>', views.beet_like, name='beet_like' ),
     path('delete_beet/<int:pk>', views.delete_beet, name='delete_beet' ),
+    path('search/', views.search, name='search' ),
 
 ]

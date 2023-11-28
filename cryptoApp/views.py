@@ -12,6 +12,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+
 # from django.contrib.sites.models import Site
 
 
@@ -31,7 +32,7 @@ def signup_view(request):
             login(request, user)
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user=authenticate(username=username, password=password)
+            user = authenticate(username=username, password=password)
             messages.success(request, "Welcome to Byenance")
             return redirect('index')
     else:
@@ -239,10 +240,11 @@ def s_home(request):
                 beet.user = request.user  # saving the beets based on who has logged in
                 beet.save()
                 messages.success(request, "your Beet has been posted...")
-                return redirect ('s_home')
+                return redirect('s_home')
 
         beets = Beet.objects.all().order_by("-created_at")
-        return render(request, 'cryptoApp/s_home.html', {"beets":beets, "form":form}) # the form shows up only if user has logged in
+        return render(request, 'cryptoApp/s_home.html',
+                      {"beets": beets, "form": form})  # the form shows up only if user has logged in
     else:
         beets = Beet.objects.all().order_by("-created_at")
         return render(request, 'cryptoApp/s_home.html', {"beets": beets})
@@ -283,21 +285,20 @@ def profile(request, pk):
 
 def update_user(request):
     if request.user.is_authenticated:
-        current_user = CustomUser.objects.get(id=request.user.id) # this fetches user
-        profile_user= Profile.objects.get(user__id=request.user.id) # this fetches the profile
-        user_form = SignUpForm(request.POST or None, request.FILES or None , instance=current_user)
-        profile_form = ProfilePicForm(request.POST or None, request.FILES or None , instance=profile_user)
+        current_user = CustomUser.objects.get(id=request.user.id)  # this fetches user
+        profile_user = Profile.objects.get(user__id=request.user.id)  # this fetches the profile
+        user_form = SignUpForm(request.POST or None, request.FILES or None, instance=current_user)
+        profile_form = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             login(request, current_user)
             messages.success(request, "Profile updated successfully")
             return redirect('s_home')
-        return render(request, "cryptoApp/update_user.html", {'user_form':user_form, 'profile_form':profile_form})
+        return render(request, "cryptoApp/update_user.html", {'user_form': user_form, 'profile_form': profile_form})
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
-
 
 
 def beet_like(request, pk):
@@ -312,7 +313,6 @@ def beet_like(request, pk):
     else:
         messages.success(request, "Please login to view this page")
         return redirect('home')
-
 
 
 def delete_beet(request, pk):
@@ -330,6 +330,30 @@ def delete_beet(request, pk):
     else:
         messages.success(request, ("Please Log In To Continue..."))
         return redirect(request.META.get("HTTP_REFERER"))
+
+
+def search(request):
+    if request.method == "POST":
+        # Grab the form field input
+        search = request.POST['search']
+        # Search the database
+        searched = Beet.objects.filter(body__contains=search)
+
+        return render(request, 'cryptoApp/search.html', {'search': search, 'searched': searched})
+    else:
+        return render(request, 'cryptoApp/search.html', {})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
