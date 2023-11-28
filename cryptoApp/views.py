@@ -51,6 +51,8 @@ def logout_view(request):
 
 def index(request):
     coins = Coin.objects.all()
+    for coin in coins:
+        coin.market_cap = format_money(coin.market_cap)
     highlight = get_hightlight_details()
     return render(request, 'cryptoApp/index.html', {'coins': coins, 'highlight': highlight})
 
@@ -173,11 +175,14 @@ def wallet_view(request, coin_id=None):
         print(f"Order with id {coin_id} not found.")
         return render(request, 'cryptoApp/payment.html', {'form': None, 'order': None})
 
+
 def success_view(request):
     return render(request, 'cryptoApp/sell_transaction.html')
 
+
 def insufficient_balance_view(request):
     return render(request, 'cryptoApp/paymentfailure.html')
+
 
 @login_required()
 def user_transactions(request):
@@ -218,6 +223,7 @@ def sell_transaction(request, transaction_id):
         return redirect('success_view')
 
     return render(request, 'cryptoApp/sell_transaction.html', {'transaction': buy_transaction})
+
 
 def socials_profile_list(request):
     if request.user.is_authenticated:
