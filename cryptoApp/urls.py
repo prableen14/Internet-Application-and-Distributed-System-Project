@@ -19,6 +19,8 @@ urlpatterns = [
     path('sell_transaction/<int:transaction_id>/', views.sell_transaction, name='sell_transaction'),
     path('success/', views.success_view, name='success_view'),
     path('failure/', views.insufficient_balance_view, name='insufficient_balance_view'),
+    path('submit_exchange/', views.add_currency, name='submit_exchange'),
+    path('submit_crypto/', views.add_coin, name='submit_crypto'),
     path(
       'articles/create/', ArticleCreateView.as_view(),
       name='article_create'
@@ -28,7 +30,7 @@ urlpatterns = [
       'articles/<int:pk>/', ArticleDetailView.as_view(),
       name='article_detail'
     ),
-path('socials_profile_list/', views.socials_profile_list, name="socials_profile_list"),
+    path('socials_profile_list/', views.socials_profile_list, name="socials_profile_list"),
     path('socials_profile/<int:pk>', views.socials_profile_list, name="socials_profile_list"),
 
 ]
