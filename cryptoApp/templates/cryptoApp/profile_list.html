@@ -4,61 +4,48 @@
 
 {% include 'cryptoApp/navbar.html' %}
 
-<h1>profile list</h1>
+<h1>List of Users</h1>
 <br/>
 
-<!--{% if profiles %}-->
-<!--  {% for profile in profiles %}-->
-<!--    {% if profile.user %}-->
-
-
-<!--<div class="card" style="width: 18rem;">-->
-<!--  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">-->
-<!--  <div class="card-body">-->
-<!--    <h5 class="card-title">{{ profile.user.username }}</h5>-->
-<!--    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--    <a href="#" class="btn btn-primary">Follow {{ profile.user.username|lower }}</a>-->
-
-<!--  </div>-->
-<!--          <div class="card-footer">-->
-<!--            <small class="text-body-secondary">Last updated at {{profile.date_modified}} </small>-->
-<!--          </div>-->
-<!--</div>-->
-<!--<br/>-->
-<!--<br/>-->
-<!--    {% endif %}-->
-<!--  {% endfor %}-->
-<!--{% endif %}-->
-
-
-<div class="row no-gutters">
+<div class="row ">
   {% if profiles %}
     {% for profile in profiles %}
       {% if profile.user %}
-        <div class="col-md-4 mb-4 col-lg-4 col-xl-2  ">
-          <div class="card" style="width: 18rem;">
 
+
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card" style="max-width: 540px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="row g-0">
+          <div class="col-md-4">
             {% if profile.profile_image %}
-            <img src=" {{profile.profile_image.url}} " width="100" height="250" class="card-img-top" alt="{{profile.user.username}}">
+            <img src=" {{profile.profile_image.url}} " width="50" height="170" class="card-img-top" alt="{{profile.user.username}}">
              {% else %}
             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">
-
             {% endif %}
-<!--            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">-->
+          </div>
+          <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ profile.user.username }}</h5>
-
-             <a href="{% url 'profile' profile.user.id %}" class="btn btn-primary">View {{ profile.user.username|lower }}</a>
-            </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">Last updated at {{profile.date_modified}} </small>
+              <a href="{% url 'profile' profile.user.id %}" class="btn btn-primary">View {{ profile.user.username|lower }}</a>
+             <p class="card-text"><small class="text-body-secondary"> Last updated at {{profile.date_modified}}</small></p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+
+
+
       {% endif %}
     {% endfor %}
   {% endif %}
-</div>
+
 
 {% include 'cryptoApp/footer.html' %}
 {% endblock %}
