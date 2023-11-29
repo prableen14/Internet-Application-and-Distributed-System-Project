@@ -1,0 +1,66 @@
+<!-- watchlist.html -->
+
+{% extends 'cryptoApp/base.html' %}
+
+{% block body_block %}
+{% if watchlist.coins.all %}
+  <div class="homepage-headline">Your Watchlist</div>
+      <div class="card custom_card">
+        <table class="table custom_table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">1h%</th>
+              <th scope="col">24h%</th>
+              <th scope="col">7d%</th>
+              <th scope="col">Market Cap</th>
+                <th scope="col">Watchlist</th>
+            </tr>
+          </thead>
+          <tbody>
+
+    <ul>
+      {% for coin in watchlist.coins.all %}
+          <tr class="coin_row" data-bs-toggle="modal" data-bs-target="#coin_modal_{{ coin.symbol }}" data-bs-whatever={{ coin.symbol }}>
+                  <th scope="row">{{ coin.id }}</th>
+                  <td>
+                      <image class="coin_icon" alt="" src={{ coin.icon_url }} />
+                      {{ coin.name }}
+                      {{ coin.symbol }}
+                  </td>
+                  <td>${{ coin.price }}</td>
+                    {%  if coin.percentage_change_1h < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_1h }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_1h }}</td>
+                    {% endif %}
+                    {%  if coin.percentage_change_24h < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_24h }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_24h }}</td>
+                    {% endif %}
+                    {%  if coin.percentage_change_7d < 0 %}
+                        <td class="red_row">{{ coin.percentage_change_7d }}</td>
+                    {% else %}
+                        <td class="green_row">{{ coin.percentage_change_7d }}</td>
+                    {% endif %}
+          <td>${{ coin.market_cap }}</td>
+         <td>  <button type="button" class="btn btn-danger remove-from-watchlist" data-coin-id="{{ coin.id }}" data-coin-name="{{ coin.name }}" data-coin-symbol="{{ coin.symbol }}" onclick="removeFromWatchlist(this)">Remove from Watchlist</button>
+</td>
+      {% endfor %}
+    </ul>
+          </tbody>
+        </table>
+      </div>
+  {% else %}
+   <div class="homepage-headline">Your Watchlist is empty</div>
+  {% endif %}
+    <script>
+    function removeFromWatchlist(button) {
+        const coinId = button.getAttribute('data-coin-id');
+        window.location.href = `{% url 'remove_from_watchlist' 0 %}`.replace('0', coinId);
+    }
+</script>
+{% endblock %}
