@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, CurrencyForm, CoinForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile, Article, Currency
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, SocialsProfile, Article, Currency, Watchlist
 import requests
 from django.utils import timezone
 from django.contrib import messages
@@ -48,6 +48,16 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+def add_to_watchlist(request, coin_id):
+    if request.user.is_authenticated:
+        coin = Coin.objects.get(id=coin_id)
+        watchlist_entry, created = Watchlist.objects.get_or_create(user=request.user)
+        watchlist_entry.coins.add(coin)
+        messages.success(request, f"{coin.name} added to your watchlist.")
+    else:
+        messages.warning(request, "Please log in to add coins to your watchlist.")
+
+    return redirect('index')
 
 def index(request):
     coins = Coin.objects.all()
