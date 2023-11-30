@@ -49,14 +49,10 @@
                     {% endif %}
                   <td>${{ coin.market_cap }}</td>
                 <td><a href="{% url 'wallet_view' coin.id %}">Buy</a></td>
-
-                    <td>
+                        <td>
          <button type="button" class="btn btn-info add-to-watchlist" data-coin-id="{{ coin.id }}" data-coin-name="{{ coin.name }}" data-coin-symbol="{{ coin.symbol }}" onclick="addToWatchlist(this)">Add to Watchlist</button>
         </td>
-
                 </tr>
-
-
                 <div class="modal fade" id="coin_modal_{{ coin.symbol }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -72,7 +68,6 @@
         </table>
       </div>
   {% endif %}
-
     <script>
     function addToWatchlist(button) {
         const coinId = button.getAttribute('data-coin-id');

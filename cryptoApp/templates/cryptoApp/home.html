@@ -8,7 +8,7 @@
                 <div class="col-md-6">
                     <h2>Your Gateway to Financial Freedom!</h2>
                     <p>Explore the limitless possibilities of cryptocurrency trading. Secure, fast, and transparent transactions await you in the world of digital assets. Revolutionize your financial journey with Byenance.</p>
-                                       {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                         <a href="{% url 'article_list' %}" class="sign-up-button">Get Engaged</a>
                         <a href="{% url 'index' %}" class="get-started-button">Discover</a>
                     {% else %}

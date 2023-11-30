@@ -7,7 +7,7 @@ Welcome to the Crypto Trade App, a Django-based web application for cryptocurren
 ### User Authentication
 
 - **Login/Logout**: Users can log in and out of the platform.
-- **Registration**: New users can register, and during registration, they are required to upload a valid ID.
+- **Registration**: New users can register, and during registration, they are required to upload a profile photo.
 
 ### Homepage
 

@@ -19,7 +19,12 @@ class CustomUser(AbstractUser):
     createdDate = models.DateTimeField(auto_now_add=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=500.00)
 
-
+class Watchlist(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    coins = models.ManyToManyField('Coin')
+    def __str__(self):
+        coin_names = ', '.join([coin.name for coin in self.coins.all()])
+        return f"{self.user.username}'s Watchlist - {coin_names}"
 class Coin(models.Model):
     name = models.CharField(max_length=250, null=True)
     symbol = models.CharField(max_length=10, null=True)
@@ -131,13 +136,3 @@ class Beet(models.Model):
                 f"({self.created_at:%Y/%m/%d %H:%M}): "
                 f"{self.body}..."
                 )
-
-
-class Watchlist(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    coins = models.ManyToManyField('Coin')
-    def __str__(self):
-        coin_names = ', '.join([coin.name for coin in self.coins.all()])
-        return f"{self.user.username}'s Watchlist - {coin_names}"
-
-
