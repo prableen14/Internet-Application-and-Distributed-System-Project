@@ -1,12 +1,10 @@
+<!-- watchlist.html -->
+
 {% extends 'cryptoApp/base.html' %}
 
 {% block body_block %}
-    <div class="homepage-headline">Today's Cryptocurrency Prices by Byenance</div>
-    <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#999999" lcw-marquee-1="coins" lcw-marquee-2="movers" lcw-marquee-items="10" ></div>
-    {% with highlight_data=highlight %}
-        {% include "./highlight.html" %}
-    {% endwith %}
-    {% if coins %}
+{% if watchlist.coins.all %}
+  <div class="homepage-headline">Your Watchlist</div>
       <div class="card custom_card">
         <table class="table custom_table">
           <thead>
@@ -18,13 +16,14 @@
               <th scope="col">24h%</th>
               <th scope="col">7d%</th>
               <th scope="col">Market Cap</th>
-                <th scope="col">Action</th>
                 <th scope="col">Watchlist</th>
             </tr>
           </thead>
           <tbody>
-            {% for coin in coins %}
-                <tr class="coin_row" data-bs-toggle="modal" data-bs-target="#coin_modal_{{ coin.symbol }}" data-bs-whatever={{ coin.symbol }}>
+
+    <ul>
+      {% for coin in watchlist.coins.all %}
+          <tr class="coin_row" data-bs-toggle="modal" data-bs-target="#coin_modal_{{ coin.symbol }}" data-bs-whatever={{ coin.symbol }}>
                   <th scope="row">{{ coin.id }}</th>
                   <td>
                       <image class="coin_icon" alt="" src={{ coin.icon_url }} />
@@ -47,36 +46,21 @@
                     {% else %}
                         <td class="green_row">{{ coin.percentage_change_7d }}</td>
                     {% endif %}
-                  <td>${{ coin.market_cap }}</td>
-                <td><a href="{% url 'wallet_view' coin.id %}">Buy</a></td>
-
-                    <td>
-         <button type="button" class="btn btn-info add-to-watchlist" data-coin-id="{{ coin.id }}" data-coin-name="{{ coin.name }}" data-coin-symbol="{{ coin.symbol }}" onclick="addToWatchlist(this)">Add to Watchlist</button>
-        </td>
-
-                </tr>
-
-
-                <div class="modal fade" id="coin_modal_{{ coin.symbol }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-body custom_modal">
-                        <div id="coin_chart_{{ coin.symbol }}" class="livecoinwatch-widget-1" lcw-coin={{ coin.symbol }} lcw-base="USD" lcw-secondary="BTC" lcw-period="d" lcw-color-tx="#ffffff" lcw-color-pr="#58c7c5" lcw-color-bg="#1f2434" lcw-border-w="1" ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            {% endfor %}
-
+          <td>${{ coin.market_cap }}</td>
+         <td>  <button type="button" class="btn btn-danger remove-from-watchlist" data-coin-id="{{ coin.id }}" data-coin-name="{{ coin.name }}" data-coin-symbol="{{ coin.symbol }}" onclick="removeFromWatchlist(this)">Remove from Watchlist</button>
+</td>
+      {% endfor %}
+    </ul>
           </tbody>
         </table>
       </div>
+  {% else %}
+   <div class="homepage-headline">Your Watchlist is empty</div>
   {% endif %}
-
     <script>
-    function addToWatchlist(button) {
+    function removeFromWatchlist(button) {
         const coinId = button.getAttribute('data-coin-id');
-        window.location.href = `{% url 'add_to_watchlist' 0 %}`.replace('0', coinId);
+        window.location.href = `{% url 'remove_from_watchlist' 0 %}`.replace('0', coinId);
     }
 </script>
 {% endblock %}

@@ -132,3 +132,12 @@ class Beet(models.Model):
                 f"{self.body}..."
                 )
 
+
+class Watchlist(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    coins = models.ManyToManyField('Coin')
+    def __str__(self):
+        coin_names = ', '.join([coin.name for coin in self.coins.all()])
+        return f"{self.user.username}'s Watchlist - {coin_names}"
+
+

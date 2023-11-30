@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, CustomAuthenticationForm, ConverterForm, TransactionForm, BeetForm, ProfilePicForm, CurrencyForm, CoinForm
 from django.contrib.auth.decorators import login_required
-from .models import Coin, CurrencyConverter, CustomUser, Transaction, Article,  Beet, Profile, Currency
+from .models import Coin, CurrencyConverter, CustomUser, Transaction, Article,  Beet, Profile, Currency, Watchlist
 import requests
 from django.utils import timezone
 from django.contrib import messages
@@ -439,3 +439,35 @@ def search(request):
         return render(request, 'cryptoApp/search.html', {})
 
 
+
+def watchlist(request):
+    if request.user.is_authenticated:
+        watchlist_entry, created = Watchlist.objects.get_or_create(user=request.user)
+        return render(request, 'cryptoApp/watchlist.html', {'watchlist': watchlist_entry})
+    else:
+        return redirect('login')
+def add_to_watchlist(request, coin_id):
+    if request.user.is_authenticated:
+        coin = Coin.objects.get(id=coin_id)
+        watchlist_entry, created = Watchlist.objects.get_or_create(user=request.user)
+        watchlist_entry.coins.add(coin)
+        messages.success(request, f"{coin.name} added to your watchlist.")
+    else:
+        messages.warning(request, "Please log in to add coins to your watchlist.")
+
+    return redirect('index')
+
+def remove_from_watchlist(request, coin_id):
+    if request.user.is_authenticated:
+        coin = get_object_or_404(Coin, id=coin_id)
+        watchlist_entry, created = Watchlist.objects.get_or_create(user=request.user)
+
+        if watchlist_entry.coins.filter(id=coin_id).exists():
+            watchlist_entry.coins.remove(coin)
+            messages.success(request, f"{coin.name} removed from your watchlist.")
+        else:
+            messages.warning(request, f"{coin.name} is not in your watchlist.")
+    else:
+        messages.warning(request, "Please log in to manage your watchlist.")
+
+    return redirect('watchlist')

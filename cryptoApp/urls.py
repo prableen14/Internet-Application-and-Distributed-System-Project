@@ -36,5 +36,9 @@ urlpatterns = [
     path('beet_like/<int:pk>', views.beet_like, name='beet_like' ),
     path('delete_beet/<int:pk>', views.delete_beet, name='delete_beet' ),
     path('search/', views.search, name='search' ),
+    path('watchlist/', views.watchlist, name='watchlist'),
+    path('add_to_watchlist/<int:coin_id>/', views.add_to_watchlist, name='add_to_watchlist'),
+    path('remove_from_watchlist/<int:coin_id>/', views.remove_from_watchlist, name='remove_from_watchlist'),
+
 
 ]
