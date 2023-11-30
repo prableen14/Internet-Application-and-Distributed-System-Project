@@ -1,0 +1,77 @@
+
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+<br/><br/>
+<h1>Search Beets</h1>
+<br/>
+
+
+<form  method=POST>
+{% csrf_token %}
+<input type="input" class="form-control"  placeholder="Enter the beet you are looking for." name="search">
+<br/><br/>
+  <button type="submit" class="btn btn-secondary">Search Beet</button>
+</form>
+
+<br/><br/>
+
+{% if search %}
+<h3>You Searched For: {{ search }}</h3>
+<br/>
+
+{% endif %}
+
+  {% if searched %}
+    {% for beet in searched %}
+	<div class="alert alert-dark" role="alert">
+<div class="container">
+	<div class="row">
+		<div class="col-1">
+		  {% if beet.user.profile.profile_image %}
+				<img src="{{ beet.user.profile.profile_image.url }}" width=50 height=50 class="rounded-circle" alt="{{ profile.user.username }}">
+
+				{% else %}
+				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width=50 height=50 class="rounded-circle" alt="{{ profile.user.username }}">
+				{% endif %}
+		</div>
+
+		<div class="col-11">
+		  {{ beet.body }}<br/>
+		  <small class="text-muted">
+		  	({{ beet.created_at}}) By
+		  	@{{ beet.user.username }}
+		  	&nbsp;&nbsp;
+		  	{{ beet.number_of_likes }}
+
+		  	{% if user in beet.likes.all %}
+		  	  <a href="{% url 'beet_like' beet.id %}">
+	<i class="fa-solid fa-heart" style="color:red"></i></a>
+		  	{% else %}
+		  		<a href="{% url 'beet_like' beet.id %}">
+		  <i class="fa fa-heart-o" style="color:red"></i></a>
+		  	{% endif %}
+
+
+
+		  </small>
+		</div><br/><br/>
+
+			</div>
+		</div>
+	</div>
+{% endfor %}
+
+{% else %}
+  Could not find
+  {% endif %}
+
+
+<br/><br/>
+
+{% include 'cryptoApp/footer.html' %}
+
+{% endblock %}

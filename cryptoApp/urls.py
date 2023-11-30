@@ -13,10 +13,6 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('coin/<int:coin_id>', views.coin_detail, name='coin_detail'),
     path('converter/', views.converter, name='converter'),
-    path('watchlist/', views.watchlist, name='watchlist'),
-    path('add_to_watchlist/<int:coin_id>/', views.add_to_watchlist, name='add_to_watchlist'),
-    path('remove_from_watchlist/<int:coin_id>/', views.remove_from_watchlist, name='remove_from_watchlist'),
-    path('socials_home/', views.socials_home, name="socials_home"),
     path('transaction/', views.user_transactions, name='user_transactions'),
     path('wallet/<int:coin_id>/', views.wallet_view, name='wallet_view'),
     path('sell_transaction/<int:transaction_id>/', views.sell_transaction, name='sell_transaction'),
@@ -33,7 +29,16 @@ urlpatterns = [
       'articles/<int:pk>/', ArticleDetailView.as_view(),
       name='article_detail'
     ),
-    path('socials_profile_list/', views.socials_profile_list, name="socials_profile_list"),
-    path('socials_profile/<int:pk>', views.socials_profile_list, name="socials_profile_list"),
+    path('s_home/',views.s_home, name="s_home"),
+    path('profile_list/', views.profile_list, name='profile_list'),
+    path('profile/<int:pk>', views.profile, name='profile' ),
+    path('update_user/', views.update_user, name='update_user' ),
+    path('beet_like/<int:pk>', views.beet_like, name='beet_like' ),
+    path('delete_beet/<int:pk>', views.delete_beet, name='delete_beet' ),
+    path('search/', views.search, name='search' ),
+    path('watchlist/', views.watchlist, name='watchlist'),
+    path('add_to_watchlist/<int:coin_id>/', views.add_to_watchlist, name='add_to_watchlist'),
+    path('remove_from_watchlist/<int:coin_id>/', views.remove_from_watchlist, name='remove_from_watchlist'),
+
 
 ]

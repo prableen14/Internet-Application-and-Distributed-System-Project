@@ -1,0 +1,51 @@
+{% extends 'cryptoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+{% include 'cryptoApp/navbar.html' %}
+
+<h1>List of Users</h1>
+<br/>
+
+<div class="row ">
+  {% if profiles %}
+    {% for profile in profiles %}
+      {% if profile.user %}
+
+
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card" style="max-width: 540px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="row g-0">
+          <div class="col-md-4">
+            {% if profile.profile_image %}
+            <img src=" {{profile.profile_image.url}} " width="50" height="170" class="card-img-top" alt="{{profile.user.username}}">
+             {% else %}
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="...">
+            {% endif %}
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ profile.user.username }}</h5>
+              <a href="{% url 'profile' profile.user.id %}" class="btn btn-primary">View {{ profile.user.username|lower }}</a>
+             <p class="card-text"><small class="text-body-secondary"> Last updated at {{profile.date_modified}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+
+
+
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+
+{% include 'cryptoApp/footer.html' %}
+{% endblock %}

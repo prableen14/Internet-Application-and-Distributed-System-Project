@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark  sticky-top  bg-primary">
+  <div class="container-fluid">
+<!--     <a class="navbar-brand" href="#">Byenance</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'profile' request.user.id %}">Profile</a>
+        </li>
+
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 's_home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'profile_list' %}">Profile list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'update_user' %}">Update Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'search' %}">Search Beet</a>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

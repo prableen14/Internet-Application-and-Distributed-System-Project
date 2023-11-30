@@ -3,6 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Group, Permission
 from django.conf import settings
 from django.db.models.signals import post_save
+User = settings.AUTH_USER_MODEL
+from django.contrib.auth import get_user_model
+from django.conf import settings
+from django.utils import timezone
+User = settings.AUTH_USER_MODEL
+from django.db.models.signals import post_save
 
 
 class CustomUser(AbstractUser):
@@ -55,21 +61,6 @@ class CurrencyConverter(models.Model):
         return f"{self.amount} {self.coin.symbol} to {self.currency}"
 
 
-class SocialsProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE)  # one user will have only onle profile
-    follows = models.ManyToManyField("self",
-                                     related_name="followed_by",
-                                     symmetrical=False,
-                                     blank=True)
-    date_modified = models.DateTimeField(User, auto_now=True)
-    def __str__(self):
-        return self.user.username
-    # one user can follow many profiles - ManyToManyField
-    # related_name - will be using this later for search query
-    # symmetrical -  False -  so that if I follow someone they don't have to necessarily follow me
-    # blank=True - this means that if i want to I don't have to follow anyone
-
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
@@ -97,20 +88,51 @@ class Transaction(models.Model):
     balance_after_transaction = models.DecimalField(max_digits=10, decimal_places=2)
     sold = models.BooleanField(default=False)
 
-def create_socialsprofile(sender, instance, created, **kwargs):
+
+
+class Profile(models.Model):
+    objects = None
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    follows = models.ManyToManyField("self",
+                                     related_name="followed_by",
+                                     symmetrical=False,
+                                     blank=True)
+    date_modified = models.DateTimeField(User,auto_now=True)
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+
+    def __str__(self):
+        return self.user.username
+
+
+# creating a profile when new users signup
+def create_profile(sender, instance, created, **kwargs):
     if created:
-        user_socialsprofile, created = SocialsProfile.objects.get_or_create(user=instance)
-        if created:
-            user_socialsprofile.follows.add(user_socialsprofile)
-            user_socialsprofile.save()
-
-        # Connect the signal
-        post_save.connect(create_socialsprofile, sender=CustomUser)
-
-        # user_socialsprofile = SocialsProfile(user=instance)
-        # user_socialsprofile.save()
-        # user_socialsprofile.follows.add([user_socialsprofile.id])
-        # user_socialsprofile.save()
+        user_profile = Profile(user=instance)  # creating a profile automatically for every user that gets created
+        user_profile.save()
+        # user follow themselves
+        user_profile.follows.set([instance.profile.id])  # I am getting the id from the migrations file
+        user_profile.save()  # we save twice because first we have to save the profile that was created and the
+        # second time when they are followed
 
 
-# post_save.connect(create_socialsprofile, sender=CustomUser)
+post_save.connect(create_profile, sender=User)  # when a new user has been saved we will create a new profile
+
+
+class Beet(models.Model):
+    user = models.ForeignKey(
+        User, related_name="beets",
+        on_delete=models.DO_NOTHING
+    )
+    body = models.CharField(max_length=200)
+    created_at=models.DateTimeField(auto_now_add=True)
+    likes= models.ManyToManyField(User, related_name="beet_like", blank=True)
+
+    #counting likes
+    def number_of_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+        return( f"{self.user} "
+                f"({self.created_at:%Y/%m/%d %H:%M}): "
+                f"{self.body}..."
+                )
